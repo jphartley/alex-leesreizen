@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#234e40">
+  <meta name="description" content="Van bergtop tot bubble tea. Een interactief Nederlands leesavontuur voor Alex.">
+  <title>Alex’ leesavontuur · De magie van Taiwanese thee</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23234e40'/%3E%3Cpath d='M17 44Q13 16 47 15Q50 47 23 45L40 24' fill='%23d6e0ac'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Ga naar de inhoud</a>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Alex’ leesavontuur, naar het begin"><span class="brand-icon" aria-hidden="true">❧</span><span>kleine wereld<span class="brand-sub">GROTE VERHALEN</span></span></a>
+    <div class="header-center"><span class="live-dot"></span> Voor Alex, van je lieve papa, Jeremy</div>
+    <div class="header-actions"><button id="font-toggle" class="icon-button" aria-label="Grotere letters" aria-pressed="false">A<span class="small-a">a</span></button><button id="calm-toggle" class="calm-toggle" aria-pressed="false"><span aria-hidden="true">☼</span> <span>Rustig lezen</span><span class="switch" aria-hidden="true"></span></button></div>
+  </header>
+  <div id="calm-notice" class="calm-notice" role="status" hidden><div><strong>Rustige leesstand staat aan.</strong><span>Illustraties zijn verborgen, animaties staan stil en de leestekst krijgt meer ruimte.</span></div><button id="calm-disable" class="text-button">Toon de illustraties weer →</button></div>
+  <main id="main" tabindex="-1"><div class="loading">Je thee-avontuur wordt klaargezet…</div></main>
+  <footer class="site-footer"><span>Een kleine reis. Een groot verhaal.</span><span>Voor Alex · Met liefde, papa Jeremy <span aria-hidden="true">♡</span></span></footer>
+  <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+</body>
+</html>

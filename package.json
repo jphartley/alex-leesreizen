@@ -1,0 +1,8 @@
+{
+  "name": "alex-thee-avontuur",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Een rustig, interactief Nederlands leesavontuur door Taiwan.",
+  "scripts": { "start": "node server.mjs" },
+  "engines": { "node": ">=18" }
+}
