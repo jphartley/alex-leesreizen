@@ -5,7 +5,9 @@ description: Add a new reading journey to Alex's app from a Dutch text and two o
 
 # Add a reading journey
 
-Jeremy supplies a Dutch text (a title and 3–5 paragraphs) and two open questions. You write everything else, including the seven multiple-choice questions. Read `AGENTS.md` first, and use `journeys/taiwan/` as the reference for every file.
+Jeremy supplies a Dutch text (a title and 3–5 paragraphs) and two open questions. You write everything else, including the seven multiple-choice questions.
+
+**Work efficiently.** `AGENTS.md` is already loaded as project instructions, so don't re-read it. Use `journeys/smaken-verleden/` as the reference: read its `journey.js` for the schema, and its `art.js` and `motion.js` for patterns. Only open `journeys/taiwan/` if you need a second example. Write each file in one go, don't re-read files you've just written, and let the scripts in step 6 do the checking. Only dig into output when something fails.
 
 UI copy is Dutch; code, comments and commit messages are English. The copy is warm, encouraging and personal to Alex (11) and papa Jeremy, with no pressure and nothing left over from another journey.
 
@@ -59,10 +61,10 @@ Rules for every SVG:
 
 1. Add the journey to `journeys/index.js`, in display order.
 2. `node --check` each new file, then `npm run check`. Fix every error; handle warnings or explain them.
-3. Run the app (`PORT=3917 node server.mjs`) and check it in headless Chrome over the DevTools protocol with a temporary `--user-data-dir`, never Alex's profile:
-   - the landing card, switcher, journey home, every chapter, glossary buttons, all 9 questions, explanations, the model answers, completion score, reset, and the full reading page;
-   - no console errors; GSAP tweens running on the hero; quiet mode pauses them; reduced motion has none;
-   - no horizontal scroll at 360px.
-   The Read tool may not show images in this environment. If so, turn screenshots into text (a coarse tone map and frame-difference map) to check layout and motion, and ask Jeremy to look.
-4. Update `README.md` if it lists journeys.
-5. Commit on a branch with an English message, and ask Jeremy to review it in the browser before merging.
+3. `npm run check:browser -- <slug>`. It covers the switcher, home, hero motion, every chapter and variant, the glossary, all questions, the model answers, the score, saving, reset, quiet mode, reduced motion and 360px layouts, in a throwaway profile. It prints only failures and a summary line (about 20 seconds per journey).
+4. Look at the art as text (the Read tool may not show images here):
+   - Hero layout and motion: `npm run screenshot -- '#/<slug>' --selector=.hero-art --at=3000,5000 --text=60 --diff`
+   - Each chapter: `npm run screenshot -- '#/<slug>/chapter-<i>' --selector=#chapter-art --text=56`
+   In the tone map, darker characters are darker areas; check that shapes sit where you drew them and nothing leaves a gap (for example, sky showing between layers). In the diff map, the moving parts should appear and the rest stay blank. Ask Jeremy to judge colours and feel.
+5. Add the journey to the list in `README.md` and the "Journeys so far" line in `AGENTS.md`.
+6. Commit on a branch with an English message, and ask Jeremy to review it in the browser before merging.

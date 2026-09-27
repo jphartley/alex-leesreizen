@@ -4,6 +4,11 @@
   "private": true,
   "type": "module",
   "description": "Personalised Dutch reading journeys for Alex, from papa Jeremy.",
-  "scripts": { "start": "node server.mjs", "check": "node scripts/check-journeys.mjs" },
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node scripts/check-journeys.mjs",
+    "check:browser": "node scripts/check-browser.mjs",
+    "screenshot": "node scripts/screenshot.mjs"
+  },
   "engines": { "node": ">=18" }
 }

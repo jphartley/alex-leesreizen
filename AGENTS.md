@@ -2,6 +2,16 @@
 
 This is a personalised Dutch reading-comprehension app (begrijpend lezen) for Alex, Jeremy’s 11-year-old son. It makes daily reading fun through calm, illustrated reading journeys (leesreizen). Each journey is one Dutch text and two open questions supplied by Jeremy, with illustrations, multiple-choice questions and model answers written by Claude at development time. The first journey is about Taiwanese tea, from mountain-grown oolong to bubble tea. The app is explicitly a gift from papa Jeremy to Alex.
 
+## Start here
+
+- **Journeys so far:** `01 taiwan` (Taiwanese tea) and `02 smaken-verleden` (how colonial history shaped Taiwanese food). The registry is `journeys/index.js`.
+- **Adding a journey:** Jeremy pastes a Dutch text (title + 3–5 paragraphs) and two open questions. Run the `/new-journey` skill (`.claude/skills/new-journey/SKILL.md`) and follow it step by step.
+- **Other changes:** read the relevant files, make the change, run the checks under Verification, and describe what was verified and what wasn’t.
+- **Git:** work on a branch; commit and merge into `main` only when Jeremy asks. There is no remote and nothing is pushed. Commit messages are English and end with the attribution line the environment provides.
+- **Alex’s data:** never open or test in Alex’s browser profile. Saved answers must survive every change (see the storage section below).
+- **Replies to Jeremy:** keep answers to simple questions short and direct; save detail for when it’s asked for.
+- **No knowledge graph:** this project has no `graphify-out/`. Don’t run `graphify update .` here; it creates one.
+
 ## Stack and running locally
 
 - Plain HTML, CSS, and browser JavaScript modules; no framework, build step, or package dependencies. GSAP is vendored in `vendor/` (loaded as classic scripts) for the hero-scene animations.
@@ -19,7 +29,8 @@ This is a personalised Dutch reading-comprehension app (begrijpend lezen) for Al
 - `styles.css`: responsive layouts, colours, typography, animations (including the shared `.m-*` motion classes), and reading modes.
 - `journeys/index.js`: registry of journeys in display order.
 - `journeys/<slug>/`: `text.md` (title and paragraphs), `journey.js` (all copy, chapters, glossary, questions), `art.js` (SVG illustrations), `motion.js` (hero animation).
-- `scripts/check-journeys.mjs`: dev-time validator for journeys and the storage migration.
+- `scripts/check-journeys.mjs` (`npm run check`): static validator for journeys and the storage migration.
+- `scripts/check-browser.mjs` (`npm run check:browser`) and `scripts/screenshot.mjs` (`npm run screenshot`): browser checks and screenshots as text; shared code in `scripts/lib/`.
 - `.claude/skills/new-journey/SKILL.md`: the checklist for adding a journey. Use it whenever Jeremy supplies a new text.
 - `server.mjs`: local static server. `README.md`: user-facing setup and feature overview.
 
@@ -45,6 +56,13 @@ Answers and settings are stored only in this browser’s `localStorage`, under `
 
 ## Verification
 
-There is no committed automated test suite. For JavaScript changes, run `node --check` on the changed files and `npm run check`.
+For JavaScript changes, run `node --check` on the changed files, `npm run check`, and `npm run check:browser`.
+
+### Browser checks
+
+- `npm run check:browser [-- <slug>...]` runs the full end-to-end check for every journey (or the ones named), driven by the journey data. It starts its own server and a headless Chrome with a throwaway profile, and prints only failures plus a summary. It can't tell whether a quiz answer key is factually right; that needs a human read.
+- `npm run screenshot -- '<hash>' [--selector=.hero-art] [--at=3000,5000] [--text[=cols]] [--diff] [--mobile] [--reduced-motion]` saves PNGs to `.screenshots/` (gitignored). The Read tool may return nothing for images in this environment, so `--text` prints a tone map (layout) and `--diff` a change map between frames (motion). Ask Jeremy to judge colour and feel.
+- For a one-off check, write a short script on top of `scripts/lib/browser.mjs` (`startServer`, `launch`, `page.eval/go/reload/screenshot/viewport/reducedMotion`). Seed `localStorage` and then `page.reload()`: a hash change alone doesn't reload the page. Chrome is found automatically on macOS and Linux, or set `CHROME=/path`.
+- Playwright isn't installed and the npm registry may be unreachable, so don't rely on installing packages. If a browser library is ever needed, download a single file from cdn.jsdelivr.net, as was done for GSAP.
 
 For changes to the reading or quiz flow, check it in a browser for every journey: landing, switcher, chapters, glossary, multiple-choice-first order, answer explanations, written-answer comparison, free previous/next and question jumping, final score, per-journey reset, and saved answers after reload. For visual or settings changes, check desktop and mobile layouts and confirm that quiet mode visibly switches on and off. Use a separate browser profile or test context so checks do not overwrite Alex’s saved answers.
