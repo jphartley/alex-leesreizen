@@ -1,8 +1,9 @@
-// Original SVG illustrations: all artwork lives locally, with no image services.
+// Taiwan journey artwork: original SVG illustrations, all local, with no image services.
+// Every id is prefixed with the journey slug so several journeys can share a page.
 const leaf = (x,y,r=0,s=1) => `<g transform="translate(${x} ${y}) rotate(${r}) scale(${s})"><path d="M0 0C-35-48-16-81 0-96C30-73 34-31 0 0" fill="#9cac66"/><path d="M0 0V-77" stroke="#526e48" stroke-width="2"/></g>`;
-export function mountains(id='mountain') {
+function mountains(id) {
   const rustle = (d, leafSvg) => `<g class="rustle" style="--d:${d}s">${leafSvg}</g>`;
-  return `<svg viewBox="0 0 720 760" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustratie van mistige Taiwanese bergen met groene theevelden en een klein theehuis">
+  return `<svg data-scene viewBox="0 0 720 760" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustratie van mistige Taiwanese bergen met groene theevelden en een klein theehuis">
   <defs><linearGradient id="${id}-sky" x2="0" y2="1"><stop stop-color="#c4d7c4"/><stop offset="1" stop-color="#eef0d6"/></linearGradient><linearGradient id="${id}-hill" x2=".5" y2="1"><stop stop-color="#668c66"/><stop offset="1" stop-color="#254f41"/></linearGradient><linearGradient id="${id}-light"><stop stop-color="#fffbe0" stop-opacity="0"/><stop offset=".5" stop-color="#fffbe0" stop-opacity=".2"/><stop offset="1" stop-color="#fffbe0" stop-opacity="0"/></linearGradient><clipPath id="${id}-clip"><path d="M0 521Q142 363 361 503T720 440V760H0Z"/></clipPath></defs>
   <path fill="url(#${id}-sky)" d="M0 0H720V760H0Z"/>
   <circle class="sun-glow" cx="537" cy="145" r="64" fill="#f9ebbb" opacity=".4"/>
@@ -26,24 +27,24 @@ export function mountains(id='mountain') {
   <g transform="translate(680 775)">${rustle(-.9,leaf(0,0,-35,1.4))}${rustle(-2.4,leaf(20,5,15,1.8))}${rustle(-4,leaf(45,10,49,1.5))}</g>
   </svg>`;
 }
-export function teaArt() {
+function teaArt() {
   return `<svg viewBox="0 0 720 650" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drie geïllustreerde kopjes groene thee, oolongthee en zwarte thee">
   <rect width="720" height="650" fill="#e2e4c8"/><circle cx="350" cy="291" r="222" fill="#ebecd9"/>
   <g opacity=".45" stroke="#a3ae83" fill="none"><circle cx="350" cy="291" r="245" stroke-dasharray="3 9"/></g>
   ${[[170,270,'#a6b668','GROENE THEE'],[365,230,'#be9051','OOLONGTHEE'],[548,310,'#825039','ZWARTE THEE']].map(([x,y,c,t],i)=>`<g transform="translate(${x} ${y})"><ellipse cy="91" rx="91" ry="24" fill="#617253" opacity=".12"/><ellipse cy="77" rx="93" ry="29" fill="#f8f5e5"/><ellipse cy="76" rx="70" ry="17" fill="#d3d5b5"/><path d="M62 0C114-7 114 61 66 56" fill="none" stroke="#faf6e8" stroke-width="16"/><path d="M-69-5Q-67 79 0 80Q67 79 69-5Z" fill="#faf6e8"/><ellipse cy="-5" rx="69" ry="24" fill="#d5d6bd"/><ellipse cy="-4" rx="59" ry="18" fill="${c}"/><path d="M-39-8Q-13-21 19-14" stroke="#fff9dd" stroke-width="3" fill="none" opacity=".5"/><g class="steam steam-${i}" fill="none" stroke="#fffdf0" stroke-width="4" stroke-linecap="round"><path d="M-15-42Q-33-65-15-87T-15-128"/><path d="M13-35Q-5-58 13-80T13-116"/></g><text y="144" text-anchor="middle" fill="#435741" font-family="sans-serif" font-size="13" letter-spacing="2">${t}</text></g>`).join('')}
   <g transform="translate(340 590)">${leaf(0,0,-60,.7)}${leaf(4,0,-15,.85)}${leaf(8,0,40,.8)}</g></svg>`;
 }
-export function bobaArt(flavor='classic') {
+function bobaArt(flavor='classic') {
  const drink=flavor==='fruit'?'#d79964':flavor==='cheese'?'#b39d73':'#bd9b7d';
  return `<svg viewBox="0 0 720 650" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Een geïllustreerde beker bubble tea met tapiocaballetjes en een groen rietje">
- <defs><clipPath id="cup-${flavor}"><path d="M247 196H473L450 523Q360 553 270 523Z"/></clipPath></defs>
+ <defs><clipPath id="taiwan-cup-${flavor}"><path d="M247 196H473L450 523Q360 553 270 523Z"/></clipPath></defs>
  <rect width="720" height="650" fill="${flavor==='fruit'?'#ecdbbb':'#eadcc7'}"/><circle cx="360" cy="315" r="223" fill="#f6ebd4"/>
  <g fill="none" stroke="#bcb18d" opacity=".55"><circle cx="360" cy="315" r="247" stroke-dasharray="3 9"/></g>
  <g class="floating-leaf">${leaf(172,202,-40,.62)}</g><g class="floating-leaf second">${leaf(572,458,53,.7)}</g>
  <ellipse cx="361" cy="555" rx="133" ry="21" fill="#775e48" opacity=".13"/>
  <g class="boba-cup"><path d="m382 241 39-151" stroke="#315e49" stroke-width="23"/><path d="m383 235 37-145" stroke="#6f9270" stroke-width="6"/>
  <path d="M247 196H473L450 523Q360 553 270 523Z" fill="#f8f1da"/>
- <g clip-path="url(#cup-${flavor})"><path d="M245 257Q360 282 478 257V553H245Z" fill="${drink}"/><path d="M247 258Q357 288 475 258" fill="none" stroke="#e7c9a4" stroke-width="17"/>
+ <g clip-path="url(#taiwan-cup-${flavor})"><path d="M245 257Q360 282 478 257V553H245Z" fill="${drink}"/><path d="M247 258Q357 288 475 258" fill="none" stroke="#e7c9a4" stroke-width="17"/>
  ${flavor==='cheese'?'<path d="M246 240Q360 260 476 240V300Q353 319 246 296Z" fill="#fff3cd"/>':''}
  ${[[300,490],[339,511],[380,514],[420,494],[320,459],[361,475],[401,461],[292,433],[435,432],[353,431],[390,414]].map(([x,y],i)=>`<g class="pearl pearl-${i%3}"><circle cx="${x}" cy="${y}" r="16" fill="#443e32"/><circle cx="${x-4}" cy="${y-5}" r="4" fill="#807059"/></g>`).join('')}
  ${flavor==='fruit'?'<g fill="#e7b646" stroke="#f7d376" stroke-width="4"><circle cx="293" cy="327" r="26"/><circle cx="416" cy="367" r="23"/></g>':''}
@@ -52,3 +53,8 @@ export function bobaArt(flavor='classic') {
  <g transform="translate(360 361)"><circle r="40" fill="#f7ecd0"/><path d="M0 19C-27-11-7-28 15-27C26-5 13 12 0 19Z" fill="#58794f"/><path d="m-8 27 18-43" stroke="#f7ecd0" stroke-width="2"/></g></g>
  <g fill="#a28056"><path d="m181 370 4-12 4 12 12 4-12 4-4 12-4-12-12-4Z"/><path d="m526 176 3-9 3 9 9 3-9 3-3 9-3-9-9-3Z"/></g></svg>`;
 }
+
+export const hero = id => mountains(`taiwan-${id}`);
+export const chapter = (i, variant) => i === 1 ? teaArt() : bobaArt(i === 3 ? variant : 'classic');
+export const completion = () => bobaArt();
+export const card = () => mountains('taiwan-card');

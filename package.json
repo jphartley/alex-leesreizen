@@ -1,8 +1,9 @@
 {
-  "name": "alex-thee-avontuur",
+  "name": "alex-leesavontuur",
   "version": "1.0.0",
   "private": true,
-  "description": "Een rustig, interactief Nederlands leesavontuur door Taiwan.",
-  "scripts": { "start": "node server.mjs" },
+  "type": "module",
+  "description": "Personalised Dutch reading journeys for Alex, from papa Jeremy.",
+  "scripts": { "start": "node server.mjs", "check": "node scripts/check-journeys.mjs" },
   "engines": { "node": ">=18" }
 }
