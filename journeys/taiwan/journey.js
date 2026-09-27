@@ -5,7 +5,7 @@ import { animate } from './motion.js';
 
 export default {
   slug: 'taiwan',
-  name: 'Taiwan',
+  name: 'Taiwanese thee',
   number: '01',
   meta: { title: 'De magie van Taiwanese thee', description: 'Van bergtop tot bubble tea. Een interactief Nederlands leesavontuur voor Alex.' },
   card: { title: 'Van bergtop tot bubble tea', blurb: 'Mistige bergen, bijzondere theeblaadjes en een drankje vol balletjes. Ontdek de magie van Taiwanese thee.' },
