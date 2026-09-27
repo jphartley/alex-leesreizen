@@ -33,6 +33,7 @@ This is a personalised Dutch reading-comprehension app (begrijpend lezen) for Al
 - `scripts/check-browser.mjs` (`npm run check:browser`) and `scripts/screenshot.mjs` (`npm run screenshot`): browser checks and screenshots as text; shared code in `scripts/lib/`.
 - `.claude/skills/new-journey/SKILL.md`: the checklist for adding a journey. Use it whenever Jeremy supplies a new text.
 - `server.mjs`: local static server. `README.md`: user-facing setup and feature overview.
+- `COSTS.md`: what each journey cost to generate, from Jeremy’s usage readings before and after.
 
 ## Current experience
 

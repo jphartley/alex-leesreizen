@@ -13,6 +13,7 @@ UI copy is Dutch; code, comments and commit messages are English. The copy is wa
 
 ## 1. Confirm the input
 
+- Ask Jeremy for his current usage reading ("Used $X of $Y daily limit") so the journey's cost can be logged in `COSTS.md` at the end, unless he already gave it.
 - Check there is a title, 3–5 paragraphs and two open questions. If the open questions are missing, ask for them before writing anything. If a paragraph is very long (over ~150 words), say so and ask whether to keep it; don't split it yourself.
 - Suggest a slug (lowercase, dashes, e.g. `ijsland`) and the next number (`02`, `03`, …). Ask only if unclear.
 - Never change the text or the open questions. Point out typos or factual doubts you notice and let Jeremy decide.
@@ -67,4 +68,5 @@ Rules for every SVG:
    - Each chapter: `npm run screenshot -- '#/<slug>/chapter-<i>' --selector=#chapter-art --text=56`
    In the tone map, darker characters are darker areas; check that shapes sit where you drew them and nothing leaves a gap (for example, sky showing between layers). In the diff map, the moving parts should appear and the rest stay blank. Ask Jeremy to judge colours and feel.
 5. Add the journey to the list in `README.md` and the "Journeys so far" line in `AGENTS.md`.
-6. Commit on a branch with an English message, and ask Jeremy to review it in the browser before merging.
+6. Ask Jeremy for his usage reading after the run and add a row to `COSTS.md` (date, before, after, cost = after − before).
+7. Commit on a branch with an English message, and ask Jeremy to review it in the browser before merging.
