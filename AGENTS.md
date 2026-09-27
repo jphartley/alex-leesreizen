@@ -32,6 +32,7 @@ Progress, answers, and settings are stored only in this browser’s `localStorag
 ## Conventions to preserve
 
 - All user-facing copy must be in Dutch, including controls, explanations, accessibility labels, and errors.
+- Everything else is in English: README, AGENTS.md, code comments, identifiers, commit messages, and other documentation. Dutch is only for the UI and the reading content. The storage key `alex-thee-avontuur-v1` stays as it is so saved progress is kept.
 - Keep the experience personal to Alex and papa Jeremy, warm, encouraging, and suitable for an 11-year-old. There is no timer or pressure to rush.
 - Preserve the original reading text and questions unless asked to change them. The current parser expects exactly four paragraphs and three numbered questions, using `## Begripsvragen` as the section boundary; it is not a general Markdown parser. Changing the source structure requires updating the parser and chapter/question mappings together.
 - Keep the visual style consistent: warm paper, muted greens, serif reading text, and gentle tea-themed illustrations.
