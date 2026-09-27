@@ -25,9 +25,9 @@ This is a personalised Dutch reading-comprehension app (begrijpend lezen) for Al
 
 The home page leads through four illustrated chapters, then seven multiple-choice questions followed by three written questions. Multiple-choice answers receive explanations and contribute to a score out of seven. Written answers are compared with example answers by the reader, not automatically graded. A personal message from papa Jeremy closes the journey.
 
-Routes are `#home`, `#chapter-0` through `#chapter-3`, `#quiz`, and `#reading` (the complete reading text). Readers can revisit the text during the quiz.
+Routes are `#home`, `#chapter-0` through `#chapter-3`, `#quiz-1` through `#quiz-10`, `#quiz-done` (completion), and `#reading` (the complete reading text). `#quiz` redirects to `#quiz-1`. Navigation is free: any chapter or question can be opened at any time, and browser back and forward work. Readers can revisit the text during the quiz.
 
-Progress, answers, and settings are stored only in this browser’s `localStorage`, under `alex-thee-avontuur-v1`. There is no account system or remote answer storage. Preserve existing saved progress when changing the flow. Written-answer indexes are separate from their positions in the overall quiz.
+Answers and settings are stored only in this browser’s `localStorage`, under `alex-thee-avontuur-v1`. Reading progress is deliberately not tracked: no read markers, “continue” targets, or gates that stop the reader moving on. Multiple-choice answers stay locked until a reset. A reset button (home page and completion) clears all answers after a confirmation and keeps settings. There is no account system or remote answer storage. Preserve existing saved answers when changing the flow. Written-answer indexes are separate from their positions in the overall quiz.
 
 ## Conventions to preserve
 
@@ -44,4 +44,4 @@ Progress, answers, and settings are stored only in this browser’s `localStorag
 
 There is no committed automated test suite. For JavaScript changes, run `node --check app.js`, `node --check art.js`, `node --check motion.js`, and `node --check server.mjs` as appropriate.
 
-For changes to the reading or quiz flow, check it in a browser: chapters, multiple-choice-first order, answer explanations, written-answer comparison, final score, retry, and progress after reload. For visual or settings changes, check desktop and mobile layouts and confirm that quiet mode visibly switches on and off. Use a separate browser profile or test context so checks do not overwrite Alex’s saved answers.
+For changes to the reading or quiz flow, check it in a browser: chapters, multiple-choice-first order, answer explanations, written-answer comparison, free previous/next and question jumping, final score, reset, and saved answers after reload. For visual or settings changes, check desktop and mobile layouts and confirm that quiet mode visibly switches on and off. Use a separate browser profile or test context so checks do not overwrite Alex’s saved answers.
