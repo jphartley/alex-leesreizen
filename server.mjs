@@ -5,7 +5,7 @@ import path from 'node:path';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.md': 'text/plain; charset=utf-8', '.svg': 'image/svg+xml' };
-const allowed = new Set(['index.html', 'styles.css', 'app.js', 'art.js', '09-26-alex-reading.md']);
+const allowed = new Set(['index.html', 'styles.css', 'app.js', 'art.js', 'motion.js', 'vendor/gsap.min.js', 'vendor/MotionPathPlugin.min.js', '09-26-alex-reading.md']);
 const server = http.createServer(async (req, res) => {
   let file;
   try { file = decodeURIComponent(new URL(req.url, 'http://localhost').pathname).slice(1) || 'index.html'; }

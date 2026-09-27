@@ -21,4 +21,4 @@ Open vervolgens [het thee-avontuur](http://localhost:3000).
 - Rustige leesstand, grotere letters, toetsenbordbediening en ondersteuning voor verminderde beweging.
 - Voortgang en antwoorden blijven lokaal bewaard in deze browser. Er worden geen antwoorden verstuurd.
 
-De illustraties zijn originele lokale SVG-tekeningen. Alleen de lettertypen worden van Google Fonts geladen; zonder internet gebruikt de pagina de ingebouwde vervangende lettertypen. Er zijn geen installatiepakketten nodig. De webserver luistert alleen op de eigen computer.
+De illustraties zijn originele lokale SVG-tekeningen. De berg wordt geanimeerd met GSAP, dat lokaal in `vendor/` staat. Alleen de lettertypen worden van Google Fonts geladen; zonder internet gebruikt de pagina de ingebouwde vervangende lettertypen. Er zijn geen installatiepakketten nodig. De webserver luistert alleen op de eigen computer.

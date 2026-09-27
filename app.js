@@ -1,4 +1,5 @@
 import { mountains, teaArt, bobaArt } from './art.js';
+import { animateMountains } from './motion.js';
 
 const main = document.querySelector('#main');
 const storageKey = 'alex-thee-avontuur-v1';
@@ -93,6 +94,7 @@ function navigate(){
  else if(route==='#quiz'){questionIndex=nextQuizIndex();showingModel=false;readback=false;quiz();}
  else if(route==='#reading')fullReading();
  else home();
+ animateMountains(main.querySelector('.hero-art, #chapter-art'));
  focusMain();
 }
 main.addEventListener('click',event=>{
