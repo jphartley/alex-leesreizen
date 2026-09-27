@@ -24,4 +24,4 @@ The illustrations are original local SVG drawings. Each journey’s opening scen
 
 ## Adding a journey
 
-Give Claude Code the Dutch text (a title and 3–5 paragraphs) and run `/new-journey`. It writes the questions, illustrations and animation into `journeys/<slug>/`. Run `npm run check` to validate all journeys.
+Give Claude Code the Dutch text (a title and 3–5 paragraphs) and two open questions, and run `/new-journey`. It writes the multiple-choice questions, model answers, illustrations and animation into `journeys/<slug>/`. Run `npm run check` to validate all journeys.

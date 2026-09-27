@@ -1,6 +1,6 @@
 # Project overview
 
-This is a personalised Dutch reading-comprehension app (begrijpend lezen) for Alex, Jeremy’s 11-year-old son. It makes daily reading fun through calm, illustrated reading journeys (leesreizen). Each journey is one Dutch text supplied by Jeremy, with illustrations and quiz questions written by Claude at development time. The first journey is about Taiwanese tea, from mountain-grown oolong to bubble tea. The app is explicitly a gift from papa Jeremy to Alex.
+This is a personalised Dutch reading-comprehension app (begrijpend lezen) for Alex, Jeremy’s 11-year-old son. It makes daily reading fun through calm, illustrated reading journeys (leesreizen). Each journey is one Dutch text and two open questions supplied by Jeremy, with illustrations, multiple-choice questions and model answers written by Claude at development time. The first journey is about Taiwanese tea, from mountain-grown oolong to bubble tea. The app is explicitly a gift from papa Jeremy to Alex.
 
 ## Stack and running locally
 

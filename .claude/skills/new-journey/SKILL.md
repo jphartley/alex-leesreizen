@@ -1,23 +1,23 @@
 ---
 name: new-journey
-description: Add a new reading journey to Alex's app from a Dutch text Jeremy supplies. Use when Jeremy pastes a new text or asks for a new journey, leesreis or story. Writes the journey data, quiz questions, SVG illustrations and hero animation, registers the journey, and checks it in a browser.
+description: Add a new reading journey to Alex's app from a Dutch text and two open questions Jeremy supplies. Use when Jeremy pastes a new text or asks for a new journey, leesreis or story. Writes the journey data, quiz questions, SVG illustrations and hero animation, registers the journey, and checks it in a browser.
 ---
 
 # Add a reading journey
 
-Jeremy supplies a Dutch text: a title and 3–5 paragraphs. You write everything else. Read `AGENTS.md` first, and use `journeys/taiwan/` as the reference for every file.
+Jeremy supplies a Dutch text (a title and 3–5 paragraphs) and two open questions. You write everything else, including the seven multiple-choice questions. Read `AGENTS.md` first, and use `journeys/taiwan/` as the reference for every file.
 
 UI copy is Dutch; code, comments and commit messages are English. The copy is warm, encouraging and personal to Alex (11) and papa Jeremy, with no pressure and nothing left over from another journey.
 
 ## 1. Confirm the input
 
-- Check there is a title and 3–5 paragraphs. If a paragraph is very long (over ~150 words), say so and ask whether to keep it; don't split it yourself.
+- Check there is a title, 3–5 paragraphs and two open questions. If the open questions are missing, ask for them before writing anything. If a paragraph is very long (over ~150 words), say so and ask whether to keep it; don't split it yourself.
 - Suggest a slug (lowercase, dashes, e.g. `ijsland`) and the next number (`02`, `03`, …). Ask only if unclear.
-- Never change the text. Point out typos you notice and let Jeremy decide.
+- Never change the text or the open questions. Point out typos or factual doubts you notice and let Jeremy decide.
 
 ## 2. `journeys/<slug>/text.md`
 
-`# Title`, a blank line, then the paragraphs exactly as supplied, separated by blank lines. `*word*` marks emphasis. Nothing else in the file.
+`# Title`, a blank line, then the paragraphs exactly as supplied, separated by blank lines. `*word*` marks emphasis. Nothing else in the file: the open questions go in `journey.js`, not here.
 
 ## 3. `journeys/<slug>/journey.js`
 
@@ -31,7 +31,8 @@ Default export following the Taiwan schema: `slug`, `name` (short, for the switc
   - Include at least one cause-and-effect question and one word-in-context question. The last question asks for the main message of the whole text.
   - Wrong options are plausible but clearly wrong on rereading; no trick questions, no "all of the above".
   - `explanation` points back to what the text says, in one or two sentences.
-- **2 open questions:** `label` is `TEKSTBEGRIP & ANALYSE` or `WOORDENSCHAT`. `chapter` is the chapter to reread. `model` is an example answer in simple sentences that Alex can compare with.
+- **2 open questions:** Jeremy's two questions, word for word and in his order. You add `label` (`TEKSTBEGRIP & ANALYSE` or `WOORDENSCHAT`), `chapter` (the chapter to reread) and `model`: an example answer in simple sentences, taken from the text, that Alex can compare with.
+- Write the multiple-choice questions so they don't give away the answers to the open questions.
 - **Order is permanent once published.** Saved answers are stored by index, so never reorder, insert or remove questions of a journey Alex may have used.
 
 ## 4. `journeys/<slug>/art.js`
