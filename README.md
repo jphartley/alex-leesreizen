@@ -17,6 +17,7 @@ Then open [the reading journeys](http://localhost:3000).
 - A landing page and header switcher to choose a journey. Journeys so far:
   - 01 · Van bergtop tot bubble tea (Taiwanese tea)
   - 02 · Smaken uit het verleden (how colonial history shaped Taiwanese food)
+  - 03 · Van vissersdorp tot smeltkroes (how Hong Kong grew and how east and west meet in its food)
 - Each journey: 3–5 illustrated chapters, word explanations, seven multiple-choice questions, and two written questions with example answers to compare, alone or together with papa. Written answers are not graded automatically.
 - An explanation for every quiz answer, a personal closing message, and the option to practise again.
 - Quiet reading mode, larger text, keyboard support, and support for reduced motion.
