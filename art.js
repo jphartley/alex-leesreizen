@@ -1,26 +1,29 @@
 // Original SVG illustrations: all artwork lives locally, with no image services.
 const leaf = (x,y,r=0,s=1) => `<g transform="translate(${x} ${y}) rotate(${r}) scale(${s})"><path d="M0 0C-35-48-16-81 0-96C30-73 34-31 0 0" fill="#9cac66"/><path d="M0 0V-77" stroke="#526e48" stroke-width="2"/></g>`;
 export function mountains(id='mountain') {
+  const rustle = (d, leafSvg) => `<g class="rustle" style="--d:${d}s">${leafSvg}</g>`;
   return `<svg viewBox="0 0 720 760" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustratie van mistige Taiwanese bergen met groene theevelden en een klein theehuis">
-  <defs><linearGradient id="${id}-sky" x2="0" y2="1"><stop stop-color="#c4d7c4"/><stop offset="1" stop-color="#eef0d6"/></linearGradient><linearGradient id="${id}-hill" x2=".5" y2="1"><stop stop-color="#668c66"/><stop offset="1" stop-color="#254f41"/></linearGradient><clipPath id="${id}-clip"><path d="M0 521Q142 363 361 503T720 440V760H0Z"/></clipPath></defs>
+  <defs><linearGradient id="${id}-sky" x2="0" y2="1"><stop stop-color="#c4d7c4"/><stop offset="1" stop-color="#eef0d6"/></linearGradient><linearGradient id="${id}-hill" x2=".5" y2="1"><stop stop-color="#668c66"/><stop offset="1" stop-color="#254f41"/></linearGradient><linearGradient id="${id}-light"><stop stop-color="#fffbe0" stop-opacity="0"/><stop offset=".5" stop-color="#fffbe0" stop-opacity=".2"/><stop offset="1" stop-color="#fffbe0" stop-opacity="0"/></linearGradient><clipPath id="${id}-clip"><path d="M0 521Q142 363 361 503T720 440V760H0Z"/></clipPath></defs>
   <path fill="url(#${id}-sky)" d="M0 0H720V760H0Z"/>
+  <circle class="sun-glow" cx="537" cy="145" r="64" fill="#f9ebbb" opacity=".4"/>
   <circle cx="537" cy="145" r="64" fill="#f9ebbb"/>
   <g class="cloud cloud-one" fill="#f7f6de" opacity=".5"><ellipse cx="137" cy="176" rx="150" ry="18"/><ellipse cx="390" cy="288" rx="200" ry="19"/></g>
-  <path d="M-30 385 95 248 163 308 289 133 399 283 491 209 615 348 737 220V760H0Z" fill="#9fbba5"/>
-  <path d="m139 361 150-228 55 110-54-25-38 63-24-7Z" fill="#d1decb" opacity=".7"/>
-  <path d="M-20 417 86 343 157 384 350 252 464 383 550 312 753 433V760H0Z" fill="#779b83"/>
-  <path d="M-20 493 105 407 217 443 438 321 535 425 614 390 740 452V760H0Z" fill="#517c67"/>
+  <g class="layer" style="--i:0"><path d="M-30 385 95 248 163 308 289 133 399 283 491 209 615 348 737 220V760H0Z" fill="#9fbba5"/>
+  <path d="m139 361 150-228 55 110-54-25-38 63-24-7Z" fill="#d1decb" opacity=".7"/></g>
+  <path class="layer" style="--i:1" d="M-20 417 86 343 157 384 350 252 464 383 550 312 753 433V760H0Z" fill="#779b83"/>
+  <path class="layer" style="--i:2" d="M-20 493 105 407 217 443 438 321 535 425 614 390 740 452V760H0Z" fill="#517c67"/>
   <g class="cloud cloud-two" fill="#e7edda" opacity=".38"><path d="M-100 384Q131 350 331 383T830 377L810 402Q540 410 330 399T-100 412Z"/><path d="M-100 469Q107 444 350 455T830 440L820 461Q523 491 300 476T-100 491Z"/></g>
   <path d="M0 521Q142 363 361 503T720 440V760H0Z" fill="url(#${id}-hill)"/>
   <g clip-path="url(#${id}-clip)" fill="none" stroke-linecap="round">
   ${Array.from({length:11},(_,i)=>`<path d="M-90 ${501+i*32}Q110 ${370+i*31} 331 ${518+i*24}T820 ${461+i*29}" stroke="${i%2?'#97ad68':'#aabd7c'}" stroke-width="12"/><path d="M-90 ${514+i*32}Q110 ${383+i*31} 331 ${531+i*24}T820 ${474+i*29}" stroke="#234f40" stroke-width="7" opacity=".55"/>`).join('')}
+  <g transform="skewX(-18)"><rect class="field-light" x="-200" y="360" width="240" height="420" fill="url(#${id}-light)"/></g>
   </g>
   <path d="M551 513Q437 552 397 615T370 760H422Q400 674 433 626T573 527Z" fill="#dbcd98"/>
-  <g transform="translate(521 430)"><path d="M0 25H78V80H0Z" fill="#e9d7ac"/><path d="m-15 27 49-41 59 41Z" fill="#344b41"/><path d="m-21 29 55-49 65 49-10 6H-16Z" fill="#344b41"/><path d="M32 45H53V80H32Z" fill="#6a6c50"/><path d="M9 42H23V59H9ZM61 42H71V59H61Z" fill="#a3996b"/><path d="M-5 81H85" stroke="#254d3d" stroke-width="5"/></g>
-  <g fill="#254f40"><path d="M29 550V446M1 495q29-62 58 0M4 472q25-61 53 0" stroke="#254f40" stroke-width="7"/><path d="M665 487V383M636 446q29-62 58 0M641 422q25-61 53 0" stroke="#254f40" stroke-width="7"/></g>
-  <g stroke="#496b58" fill="none" stroke-width="2"><path d="m133 163 9-5 9 5m13 12 7-4 7 4"/></g>
-  <g transform="translate(30 757)">${leaf(0,0,-39,1.6)}${leaf(20,5,7,1.4)}${leaf(45,10,49,1.5)}</g>
-  <g transform="translate(680 775)">${leaf(0,0,-35,1.4)}${leaf(20,5,15,1.8)}${leaf(45,10,49,1.5)}</g>
+  <g transform="translate(521 430)"><g fill="#f3f1dd"><circle class="smoke" cx="58" cy="-18" r="5"/><circle class="smoke" cx="58" cy="-18" r="5" style="--d:-2.3s"/><circle class="smoke" cx="58" cy="-18" r="5" style="--d:-4.6s"/></g><path d="M54-12H62V4H54Z" fill="#344b41"/><path d="M0 25H78V80H0Z" fill="#e9d7ac"/><path d="m-15 27 49-41 59 41Z" fill="#344b41"/><path d="m-21 29 55-49 65 49-10 6H-16Z" fill="#344b41"/><path d="M32 45H53V80H32Z" fill="#6a6c50"/><path class="window" d="M9 42H23V59H9ZM61 42H71V59H61Z" fill="#a3996b"/><path d="M-5 81H85" stroke="#254d3d" stroke-width="5"/></g>
+  <g fill="#254f40" stroke="#254f40" stroke-width="7"><path class="tree" d="M29 550V446M1 495q29-62 58 0M4 472q25-61 53 0"/><path class="tree" style="--d:-2.7s" d="M665 487V383M636 446q29-62 58 0M641 422q25-61 53 0"/></g>
+  <g class="birds" stroke="#496b58" fill="none" stroke-width="2"><path class="bird" d="m133 163 9-5 9 5"/><path class="bird" style="--d:-.6s" d="m164 175 7-4 7 4"/></g>
+  <g transform="translate(30 757)">${rustle(0,leaf(0,0,-39,1.6))}${rustle(-1.8,leaf(20,5,7,1.4))}${rustle(-3.1,leaf(45,10,49,1.5))}</g>
+  <g transform="translate(680 775)">${rustle(-.9,leaf(0,0,-35,1.4))}${rustle(-2.4,leaf(20,5,15,1.8))}${rustle(-4,leaf(45,10,49,1.5))}</g>
   </svg>`;
 }
 export function teaArt() {
