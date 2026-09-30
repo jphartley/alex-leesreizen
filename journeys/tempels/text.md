@@ -1,0 +1,9 @@
+# Kleurrijke Tempels: De Goden en Godinnen van Taiwan
+
+Wie in Taiwan rondloopt, ruikt al snel de zoete geur van wierook. Het eiland staat vol met prachtig versierde tempels, van piepkleine altaartjes op straat tot enorme, kleurrijke gebouwen met draken op het dak. Het bijzondere aan de religie in Taiwan is dat de mensen verschillende geloven met elkaar mengen. Boeddhisme, taoïsme en oude volksgeloven lopen naadloos in elkaar over. In één tempel staan vaak beelden van allerlei verschillende goden vredig naast elkaar.
+
+Omdat Taiwan een eiland is, is de zee altijd heel belangrijk, maar ook gevaarlijk geweest. Daarom is Mazu een van de allerbelangrijkste godinnen van het land. Zij is de taoïstische godin van de zee en de beschermvrouwe van vissers en zeelieden. Volgens de legende kon zij de weergoden bedwingen en zeelieden uit zware stormen redden. Elk jaar wordt er in Taiwan een gigantische wandeltocht gehouden ter ere van Mazu. Miljoenen mensen lopen dan dagenlang achter haar beeld aan door steden en dorpen, gadegeslagen door luid knallend vuurwerk.
+
+Een andere zeer geliefde godin is Kuan Yin (of Guanyin). Zij komt oorspronkelijk uit het boeddhisme en is de godin van de barmhartigheid en compassie. Haar naam betekent letterlijk 'zij die de huilen van de wereld hoort'. Taiwanezen bidden tot Kuan Yin als ze troost zoeken, ziek zijn of hulp nodig hebben bij moeilijke beslissingen. Ze staat bekend om haar oneindige vriendelijkheid en wordt vaak afgebeeld met een vaas vol helend water of zittend op een lotusbloem.
+
+In de tempels bidden mensen niet alleen, ze praten ook met de goden. Ze offeren vers fruit of gooien met twee rode, houten maanstenen op de grond om de goden een 'ja' of 'nee' vraag te stellen. Religie in Taiwan is daardoor een hele levendige en dagelijkse bezigheid.

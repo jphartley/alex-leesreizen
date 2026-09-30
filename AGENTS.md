@@ -4,7 +4,7 @@ This is a personalised Dutch reading-comprehension app (begrijpend lezen) for Al
 
 ## Start here
 
-- **Journeys so far:** `01 taiwan` (Taiwanese tea), `02 smaken-verleden` (how colonial history shaped Taiwanese food) and `03 hongkong` (Hong Kong's growth and its east-meets-west food). The registry is `journeys/index.js`.
+- **Journeys so far:** `01 taiwan` (Taiwanese tea), `02 smaken-verleden` (how colonial history shaped Taiwanese food) `03 hongkong` (Hong Kong's growth and its east-meets-west food) and `04 tempels` (the gods and goddesses of Taiwan's temples). The registry is `journeys/index.js`.
 - **Adding a journey:** Jeremy pastes a Dutch text (title + 3–5 paragraphs) and two open questions. Run the `/new-journey` skill (`.claude/skills/new-journey/SKILL.md`) and follow it step by step.
 - **Other changes:** read the relevant files, make the change, run the checks under Verification, and describe what was verified and what wasn’t.
 - **Git:** work on a branch; commit and merge into `main` only when Jeremy asks. There is no remote and nothing is pushed. Commit messages are English and end with the attribution line the environment provides.
