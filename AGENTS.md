@@ -7,7 +7,7 @@ This is a personalised Dutch reading-comprehension app (begrijpend lezen) for Al
 - **Journeys so far:** `01 taiwan` (Taiwanese tea), `02 smaken-verleden` (how colonial history shaped Taiwanese food) `03 hongkong` (Hong Kong's growth and its east-meets-west food) and `04 tempels` (the gods and goddesses of Taiwan's temples). The registry is `journeys/index.js`.
 - **Adding a journey:** Jeremy pastes a Dutch text (title + 3–5 paragraphs) and two open questions. Run the `/new-journey` skill (`.claude/skills/new-journey/SKILL.md`) and follow it step by step.
 - **Other changes:** read the relevant files, make the change, run the checks under Verification, and describe what was verified and what wasn’t.
-- **Git:** work on a branch; commit and merge into `main` only when Jeremy asks. There is no remote and nothing is pushed. Commit messages are English and end with the attribution line the environment provides.
+- **Git:** a new journey is committed straight on `main`. For other changes, work on a branch and commit and merge into `main` only when Jeremy asks. There is no remote and nothing is pushed. Commit messages are English and end with the attribution line the environment provides.
 - **Alex’s data:** never open or test in Alex’s browser profile. Saved answers must survive every change (see the storage section below).
 - **Replies to Jeremy:** keep answers to simple questions short and direct; save detail for when it’s asked for.
 - **No knowledge graph:** this project has no `graphify-out/`. Don’t run `graphify update .` here; it creates one.
@@ -15,7 +15,7 @@ This is a personalised Dutch reading-comprehension app (begrijpend lezen) for Al
 ## Stack and running locally
 
 - Plain HTML, CSS, and browser JavaScript modules; no framework, build step, or package dependencies. GSAP is vendored in `vendor/` (loaded as classic scripts) for the hero-scene animations.
-- Requires Node.js 18 or newer. Run `npm start`, then open `http://localhost:3000`. `npm run check` validates all journeys.
+- Requires Node.js 18 or newer. Run `npm start` (foreground), or `npm run serve [-- <slug>]` to start it in the background and get the link; then open `http://localhost:3000`. `npm run check` validates all journeys.
 - `server.mjs` binds to `127.0.0.1`, supports a `PORT` environment variable, and serves an explicit allowlist of core files plus journey files matching `journeys/<slug>/{text.md,journey.js,art.js,motion.js}`. Add other new browser assets to the allowlist.
 - Open through the local server, not directly as a file: the app fetches each journey’s Markdown text.
 - Google Fonts supplies the typefaces; local fallback fonts work without internet. Artwork is local SVG.
@@ -32,7 +32,7 @@ This is a personalised Dutch reading-comprehension app (begrijpend lezen) for Al
 - `scripts/check-journeys.mjs` (`npm run check`): static validator for journeys and the storage migration.
 - `scripts/check-browser.mjs` (`npm run check:browser`) and `scripts/screenshot.mjs` (`npm run screenshot`): browser checks and screenshots as text; shared code in `scripts/lib/`.
 - `.claude/skills/new-journey/SKILL.md`: the checklist for adding a journey. Use it whenever Jeremy supplies a new text.
-- `server.mjs`: local static server. `README.md`: user-facing setup and feature overview.
+- `server.mjs`: local static server; `scripts/serve.mjs` (`npm run serve`) starts it in the background if it isn't running. `README.md`: user-facing setup and feature overview.
 - `COSTS.md`: what each journey cost to generate, from Jeremy’s usage readings before and after.
 
 ## Current experience

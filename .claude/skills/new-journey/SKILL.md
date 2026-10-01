@@ -69,4 +69,5 @@ Rules for every SVG:
    In the tone map, darker characters are darker areas; check that shapes sit where you drew them and nothing leaves a gap (for example, sky showing between layers). In the diff map, the moving parts should appear and the rest stay blank. Ask Jeremy to judge colours and feel.
 5. Add the journey to the list in `README.md` and the "Journeys so far" line in `AGENTS.md`.
 6. Ask Jeremy for his usage reading after the run and add a row to `COSTS.md` (date, before, after, cost = after − before).
-7. Commit on a branch with an English message, and ask Jeremy to review it in the browser before merging.
+7. Commit straight on `main` with an English message (no branch for a new journey).
+8. Run `npm run serve -- <slug>`. It starts the local server in the background if it isn't already running and prints the link. Give Jeremy that link so he can test straight away in a private window.

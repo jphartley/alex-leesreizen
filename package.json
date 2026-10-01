@@ -6,6 +6,7 @@
   "description": "Personalised Dutch reading journeys for Alex, from papa Jeremy.",
   "scripts": {
     "start": "node server.mjs",
+    "serve": "node scripts/serve.mjs",
     "check": "node scripts/check-journeys.mjs",
     "check:browser": "node scripts/check-browser.mjs",
     "screenshot": "node scripts/screenshot.mjs"
