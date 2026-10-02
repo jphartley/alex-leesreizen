@@ -20,6 +20,7 @@ Then open [the reading journeys](http://localhost:3000).
   - 03 · Van vissersdorp tot smeltkroes (how Hong Kong grew and how east and west meet in its food)
   - 04 · Kleurrijke tempels (the gods and goddesses of Taiwan's temples)
   - 05 · Bizarre pizza's (the strangest pizza flavours of Asia)
+  - 06 · Vliegen in de toekomst (flying the Airbus A350 to Hong Kong)
 - Each journey: 3–5 illustrated chapters, word explanations, seven multiple-choice questions, and two written questions with example answers to compare, alone or together with papa. Written answers are not graded automatically.
 - An explanation for every quiz answer, a personal closing message, and the option to practise again.
 - Quiet reading mode, larger text, keyboard support, and support for reduced motion.

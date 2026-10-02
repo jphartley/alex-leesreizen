@@ -4,5 +4,6 @@ import smakenVerleden from './smaken-verleden/journey.js';
 import hongkong from './hongkong/journey.js';
 import tempels from './tempels/journey.js';
 import pizza from './pizza/journey.js';
+import a350 from './a350/journey.js';
 
-export const journeys = [taiwan, smakenVerleden, hongkong, tempels, pizza];
+export const journeys = [taiwan, smakenVerleden, hongkong, tempels, pizza, a350];
