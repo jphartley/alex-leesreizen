@@ -13,7 +13,7 @@ UI copy is Dutch; code, comments and commit messages are English. The copy is wa
 
 ## 1. Confirm the input
 
-- Ask Jeremy for his current usage reading ("Used $X of $Y daily limit") so the journey's cost can be logged in `COSTS.md` at the end, unless he already gave it.
+- Don't ask Jeremy for usage or cost readings. If he volunteers before and after readings himself, add a row to `COSTS.md` (date, before, after, cost = after − before); otherwise skip it.
 - Check there is a title, 3–5 paragraphs and two open questions. If the open questions are missing, ask for them before writing anything. If a paragraph is very long (over ~150 words), say so and ask whether to keep it; don't split it yourself.
 - Suggest a slug (lowercase, dashes, e.g. `ijsland`) and the next number (`02`, `03`, …). Ask only if unclear.
 - Never change the text or the open questions. Point out typos or factual doubts you notice and let Jeremy decide.
@@ -63,11 +63,11 @@ Rules for every SVG:
 1. Add the journey to `journeys/index.js`, in display order.
 2. `node --check` each new file, then `npm run check`. Fix every error; handle warnings or explain them.
 3. `npm run check:browser -- <slug>`. It covers the switcher, home, hero motion, every chapter and variant, the glossary, all questions, the model answers, the score, saving, reset, quiet mode, reduced motion and 360px layouts, in a throwaway profile. It prints only failures and a summary line (about 20 seconds per journey).
-4. Look at the art as text (the Read tool may not show images here):
+4. As soon as both checks pass, run `npm run serve -- <slug>`. It starts the local server in the background if it isn't already running and prints the link. Give Jeremy that link straight away so he can test in a private window, then carry on with the steps below without waiting for him.
+5. Look at the art as text (the Read tool may not show images here):
    - Hero layout and motion: `npm run screenshot -- '#/<slug>' --selector=.hero-art --at=3000,5000 --text=60 --diff`
    - Each chapter: `npm run screenshot -- '#/<slug>/chapter-<i>' --selector=#chapter-art --text=56`
    In the tone map, darker characters are darker areas; check that shapes sit where you drew them and nothing leaves a gap (for example, sky showing between layers). In the diff map, the moving parts should appear and the rest stay blank. Ask Jeremy to judge colours and feel.
-5. Add the journey to the list in `README.md` and the "Journeys so far" line in `AGENTS.md`.
-6. Ask Jeremy for his usage reading after the run and add a row to `COSTS.md` (date, before, after, cost = after − before).
-7. Commit straight on `main` with an English message (no branch for a new journey).
-8. Run `npm run serve -- <slug>`. It starts the local server in the background if it isn't already running and prints the link. Give Jeremy that link so he can test straight away in a private window.
+6. Add the journey to the list in `README.md` and the "Journeys so far" line in `AGENTS.md`.
+7. Commit straight on `main` with an English message (no branch for a new journey). Don't wait for usage readings or other input before committing.
+8. In the final reply, repeat the link.
