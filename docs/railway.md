@@ -22,6 +22,7 @@ Do not copy DNS values from another Railway service into this file or into Namec
 - Custom domain: `alex-reads.ink`, port **8080** (the port Railway detected).
 - `www` is not configured. A Railway trial allows one custom domain, and `www` would count as a second one.
 - Namecheap host records are one CNAME on `@` and one TXT on `_railway-verify`. The parking records that were there at purchase have been removed.
+- Auto-deploy is on. The Source settings say **Auto deploys when pushed to GitHub**.
 
 ## 1. Create the Railway project
 
@@ -45,22 +46,24 @@ Wait for the first deploy. These settings should match. Change one only if it do
 
 Do not click **Disconnect** or **Eject**.
 
-**You should see:** a successful deploy of the latest commit on `main`. The first screen says **Unexposed service** until a domain is generated.
+**You should see:** a successful deploy of the latest commit on `main`, and under **Branch connected to production** the line **Auto deploys when pushed to GitHub**. The first screen says **Unexposed service** until a domain is generated.
 
-## 2. If Railway cannot read the GitHub branch
+If that line is missing, or it says **Auto deploy unavailable**, **Could not load branches**, or **Auto deploy is disabled**, follow section 2 before treating the site as updating itself.
 
-**Auto deploy unavailable** and **Could not load branches** mean a later push to `main` will not deploy. The first deploy can still succeed, because connecting the repo deploys the latest commit once.
+## 2. Turn on auto-deploy
 
-1. Click **Retry** on the red line.
-2. If it stays, open [github.com/settings/installations](https://github.com/settings/installations).
-3. Open **Railway** → **Configure**.
-4. Under **Only select repositories**, include `jphartley/alex-leesreizen`. Leave any other selected repositories in place.
-5. Click the green **Save**. GitHub has not stored the change until you do.
-6. Return to Railway → service **Settings** → **Source**, and click **Retry**.
+A push to `main` does nothing until both of these are true: the Railway account is connected to GitHub, and auto-deploy is enabled on the service. The first deploy can still succeed without them, because connecting the repository deploys the latest commit once. **Check for updates** and **Update** under **Upstream Repo** can publish one later batch of commits. They do not turn auto-deploy on.
 
-**Error authenticating with GitHub / Invalid GitHub OAuth callback** is a failed login handshake. Close that tab. Open [railway.com](https://railway.com) in a new tab and sign in from there. Do not refresh the error page. Then click **Retry** again.
+Do not click **Disconnect** next to the branch, and do not click **Eject**.
 
-**You should see:** the red line gone, and no **Auto deploy unavailable** message.
+1. Open [railway.com/account](https://railway.com/account).
+2. Under **Account Integrations**, the GitHub card must not say **Connect**. If it does, click **Connect**, approve Railway on GitHub, and stay in the same browser. Do not refresh the page GitHub sends you back to.
+3. If that page says **Error authenticating with GitHub** or **Invalid GitHub OAuth callback**, close the tab. Open [railway.com](https://railway.com) in a new tab and sign in from there. Then try **Connect** again.
+4. Confirm the Railway GitHub app can see this repository. Open [github.com/settings/installations](https://github.com/settings/installations), choose **Railway** → **Configure**, and under **Only select repositories** include `jphartley/alex-leesreizen`. Leave any other selected repository in place. Click the green **Save**.
+5. Return to the service **Settings** → **Source**.
+6. If the branch line says **Auto deploy is disabled**, click **Enable**.
+
+**You should see:** branch `main`, and the line **Auto deploys when pushed to GitHub**, with a **Disable** button beside it. The red **Could not load branches** line should be gone.
 
 ## 3. Open the temporary Railway address
 
@@ -115,14 +118,16 @@ The certificate can take a few minutes and sometimes up to an hour after the rec
 
 ## After it is live
 
-A later push to `main` starts a new Railway deploy, once auto-deploy is working. Wait for that deploy to finish, then reload `https://alex-reads.ink`. An ordinary update needs no Namecheap change.
+A later push to `main` starts a new Railway deploy when Source says **Auto deploys when pushed to GitHub**. Wait for that deploy to become **Active**, then reload `https://alex-reads.ink`. An ordinary update needs no Namecheap change. A commit that only changes files outside the server allowlist, such as this guide, will not change what the site shows.
 
 ## If a page looks wrong
 
 | What you see | What it usually means |
 | --- | --- |
-| **Could not load branches** or **Auto deploy unavailable** | The Railway GitHub app cannot read the repository. Follow section 2. Do not disconnect the source as the first step |
-| **Invalid GitHub OAuth callback** | The login return page was stale. Close it and sign in again from [railway.com](https://railway.com) |
+| **Could not load branches** or **Auto deploy unavailable** | The Railway account is not connected to GitHub, or the GitHub app cannot see this repository. Follow section 2. Do not disconnect the branch or eject the upstream repo |
+| **Auto deploy is disabled** | The account is connected, but the switch is off. In Source, click **Enable**. The finished line is **Auto deploys when pushed to GitHub** |
+| A push does not start a deploy | Source does not say **Auto deploys when pushed to GitHub**. Follow section 2. **Update** under **Upstream Repo** publishes the commits GitHub already has, and leaves the switch unchanged |
+| **Invalid GitHub OAuth callback** | The login return page was stale. Close it and sign in again from [railway.com](https://railway.com), then connect GitHub from the account page |
 | Deploy failed, no start command | In the service settings, set the start command to `node server.mjs`, then redeploy |
 | The `.up.railway.app` link does not load | The app is not answering on the detected port. Confirm `PORT` is not set in the service variables |
 | **Waiting for DNS update** stays up for a long time | The Namecheap CNAME and TXT do not both match the records Railway is showing now. A missing TXT record is enough to cause this |
