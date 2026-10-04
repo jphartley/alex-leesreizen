@@ -69,5 +69,5 @@ Rules for every SVG:
    - Each chapter: `npm run screenshot -- '#/<slug>/chapter-<i>' --selector=#chapter-art --text=56`
    In the tone map, darker characters are darker areas; check that shapes sit where you drew them and nothing leaves a gap (for example, sky showing between layers). In the diff map, the moving parts should appear and the rest stay blank. Ask Jeremy to judge colours and feel.
 6. Add the journey to the "Journeys so far" table in `README.md` and the "Journeys so far" line in `AGENTS.md`.
-7. Commit straight on `main` with an English message (no branch for a new journey). Don't wait for usage readings or other input before committing.
+7. Commit on `main` with an English message. Don't wait for usage readings or other input before committing.
 8. In the final reply, repeat the link.

@@ -1,6 +1,6 @@
 # Publishing alex-reads.ink
 
-A push to `main` on GitHub is the production deploy. Railway runs this repository as a Node process and serves it at `https://alex-reads.ink`.
+A push to `main` on GitHub is the production deploy. This repository has one branch, `main`. Railway runs it as a Node process and serves it at `https://alex-reads.ink`.
 
 This app has no build, no dependencies, and no environment variables. Railway does not need a root directory, a Dockerfile, or a `railway.toml`.
 
