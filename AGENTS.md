@@ -1,6 +1,6 @@
 # Project overview
 
-This is a personalised Dutch reading-comprehension app (begrijpend lezen) for Alex, Jeremy’s 11-year-old son. It makes daily reading fun through calm, illustrated reading journeys (leesreizen). Each journey is one Dutch text and two open questions supplied by Jeremy, with illustrations, multiple-choice questions and model answers written by Claude at development time. The first journey is about Taiwanese tea, from mountain-grown oolong to bubble tea. The app is explicitly a gift from papa Jeremy to Alex.
+This is a personalised Dutch reading-comprehension app (begrijpend lezen) for Alex, Jeremy’s son. It makes daily reading fun through calm, illustrated reading journeys (leesreizen). Each journey is one Dutch text and two open questions supplied by Jeremy, with illustrations, multiple-choice questions and model answers written by Claude at development time. The first journey is about Taiwanese tea, from mountain-grown oolong to bubble tea. The app is explicitly a gift from papa Jeremy to Alex.
 
 ## Start here
 
@@ -47,7 +47,7 @@ Answers and settings are stored only in this browser’s `localStorage`, under `
 
 - All user-facing copy must be in Dutch, including controls, explanations, accessibility labels, and errors.
 - Everything else is in English: README, AGENTS.md, code comments, identifiers, commit messages, and other documentation. Dutch is only for the UI and the reading content. Storage keys and journey slugs are data and stay as they are.
-- Keep the experience personal to Alex and papa Jeremy, warm, encouraging, and suitable for an 11-year-old. There is no timer or pressure to rush.
+- Keep the experience personal to Alex and papa Jeremy, warm, encouraging, and suitable for a young reader. There is no timer or pressure to rush.
 - Never change a journey’s text unless asked. Answers are stored by question index, so never reorder, insert, or remove questions of a published journey.
 - Journey copy is plain text with optional `*emphasis*`; `app.js` escapes it through `inline()`. Escape source text, glossary definitions, and written answers before inserting them into HTML.
 - Every SVG `id` starts with the journey slug, because the landing page shows several journeys at once.

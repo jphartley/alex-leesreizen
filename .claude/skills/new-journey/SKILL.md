@@ -9,7 +9,7 @@ Jeremy supplies a Dutch text (a title and 3–5 paragraphs) and two open questio
 
 **Work efficiently.** `AGENTS.md` is already loaded as project instructions, so don't re-read it. Use `journeys/smaken-verleden/` as the reference: read its `journey.js` for the schema, and its `art.js` and `motion.js` for patterns. Only open `journeys/taiwan/` if you need a second example. Write each file in one go, don't re-read files you've just written, and let the scripts in step 6 do the checking. Only dig into output when something fails.
 
-UI copy is Dutch; code, comments and commit messages are English. The copy is warm, encouraging and personal to Alex (11) and papa Jeremy, with no pressure and nothing left over from another journey.
+UI copy is Dutch; code, comments and commit messages are English. The copy is warm, encouraging and personal to Alex and papa Jeremy, with no pressure and nothing left over from another journey.
 
 ## 1. Confirm the input
 
@@ -27,7 +27,7 @@ UI copy is Dutch; code, comments and commit messages are English. The copy is wa
 Default export following the Taiwan schema: `slug`, `name` (short, for the switcher), `number`, `meta`, `card`, `home`, `chapters`, `dictionary`, `questions`, `written`, `quiz`, `completion`, `art`, `animate`. Plain text only; `*emphasis*` is allowed; no HTML.
 
 - **Chapters:** one per paragraph, in order. Each has `title`, `short`, `label` (CAPS place/theme line), `icon` (one typographic symbol such as ♧ ❧ ✳ ☼), `aside`, `caption`, `note`. `variants` is optional (illustration switcher buttons, like Taiwan's chapter 4).
-- **Glossary:** 5–10 words that are hard for an 11-year-old, written exactly as they appear in the text (including inflection, e.g. `revolutionairs`). Definitions are one short, child-friendly sentence.
+- **Glossary:** 5–10 words that are hard for a young reader, written exactly as they appear in the text (including inflection, e.g. `revolutionairs`). Definitions are one short, child-friendly sentence.
 - **7 multiple-choice questions:** 4 options each, one clearly correct and answerable from the text alone.
   - Spread the correct answers over A–D (no letter more than 3 times).
   - Cover every chapter at least once and set `chapter` to where the answer is.
@@ -68,6 +68,6 @@ Rules for every SVG:
    - Hero layout and motion: `npm run screenshot -- '#/<slug>' --selector=.hero-art --at=3000,5000 --text=60 --diff`
    - Each chapter: `npm run screenshot -- '#/<slug>/chapter-<i>' --selector=#chapter-art --text=56`
    In the tone map, darker characters are darker areas; check that shapes sit where you drew them and nothing leaves a gap (for example, sky showing between layers). In the diff map, the moving parts should appear and the rest stay blank. Ask Jeremy to judge colours and feel.
-6. Add the journey to the list in `README.md` and the "Journeys so far" line in `AGENTS.md`.
+6. Add the journey to the "Journeys so far" table in `README.md` and the "Journeys so far" line in `AGENTS.md`.
 7. Commit straight on `main` with an English message (no branch for a new journey). Don't wait for usage readings or other input before committing.
 8. In the final reply, repeat the link.
