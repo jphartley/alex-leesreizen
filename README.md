@@ -28,6 +28,7 @@ There's no timer, no streaks and no pressure. Any chapter or question can be ope
 | 04 | Kleurrijke tempels | The gods and goddesses of Taiwan's temples |
 | 05 | Bizarre pizza's | The strangest pizza flavours of Asia |
 | 06 | Vliegen in de toekomst | Flying the Airbus A350 to Hong Kong |
+| 07 | Achter de schermen | How alex-reads.ink works, from the name to the server |
 
 ### Comfortable reading
 
