@@ -19,6 +19,10 @@ const server = http.createServer(async (req, res) => {
     res.end(data);
   } catch (error) { res.writeHead(error.code === 'ENOENT' ? 404 : 500).end(error.code === 'ENOENT' ? 'Not found' : 'Could not read file'); }
 });
-server.listen(Number(process.env.PORT || 3000), '127.0.0.1', () => {
-  console.log(`Alex’s reading journeys: http://localhost:${server.address().port}`);
+// At home the server stays on loopback. Railway injects RAILWAY_ENVIRONMENT and
+// connects from outside the container, so listen on every interface there.
+const host = process.env.RAILWAY_ENVIRONMENT ? '0.0.0.0' : '127.0.0.1';
+server.listen(Number(process.env.PORT || 3000), host, () => {
+  const where = host === '127.0.0.1' ? 'localhost' : host;
+  console.log(`Alex’s reading journeys: http://${where}:${server.address().port}`);
 });

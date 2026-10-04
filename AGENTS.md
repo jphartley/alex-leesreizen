@@ -7,7 +7,7 @@ This is a personalised Dutch reading-comprehension app (begrijpend lezen) for Al
 - **Journeys so far:** `01 taiwan` (Taiwanese tea), `02 smaken-verleden` (how colonial history shaped Taiwanese food), `03 hongkong` (Hong Kong's growth and its east-meets-west food), `04 tempels` (the gods and goddesses of Taiwan's temples), `05 pizza` (the strangest pizza flavours of Asia) and `06 a350` (flying the Airbus A350 to Hong Kong). The registry is `journeys/index.js`.
 - **Adding a journey:** Jeremy pastes a Dutch text (title + 3–5 paragraphs) and two open questions. Run the `/new-journey` skill (`.claude/skills/new-journey/SKILL.md`) and follow it step by step.
 - **Other changes:** read the relevant files, make the change, run the checks under Verification, and describe what was verified and what wasn’t.
-- **Git:** a new journey is committed straight on `main`. For other changes, work on a branch and commit and merge into `main` only when Jeremy asks. The remote is the public GitHub repo `jphartley/alex-leesreizen`; push only when Jeremy asks. Because it is public, never commit secrets or personal details about Alex beyond his first name (no age, school, photos or saved answers). Commit messages are English and end with the attribution line the environment provides.
+- **Git:** a new journey is committed straight on `main`. For other changes, work on a branch and commit and merge into `main` only when Jeremy asks. The remote is the public GitHub repo `jphartley/alex-leesreizen`; push only when Jeremy asks. Once Railway is connected, a push to `main` publishes `https://alex-reads.ink` (see `docs/railway.md`). Because it is public, never commit secrets or personal details about Alex beyond his first name (no age, school, photos or saved answers). Commit messages are English and end with the attribution line the environment provides.
 - **Alex’s data:** never open or test in Alex’s browser profile. Saved answers must survive every change (see the storage section below).
 - **Replies to Jeremy:** keep answers to simple questions short and direct; save detail for when it’s asked for.
 - **No knowledge graph:** this project has no `graphify-out/`. Don’t run `graphify update .` here; it creates one.
@@ -16,7 +16,7 @@ This is a personalised Dutch reading-comprehension app (begrijpend lezen) for Al
 
 - Plain HTML, CSS, and browser JavaScript modules; no framework, build step, or package dependencies. GSAP is vendored in `vendor/` (loaded as classic scripts) for the hero-scene animations.
 - Requires Node.js 18 or newer. Run `npm start` (foreground), or `npm run serve [-- <slug>]` to start it in the background and get the link; then open `http://localhost:3000`. `npm run check` validates all journeys.
-- `server.mjs` binds to `127.0.0.1`, supports a `PORT` environment variable, and serves an explicit allowlist of core files plus journey files matching `journeys/<slug>/{text.md,journey.js,art.js,motion.js}`. Add other new browser assets to the allowlist.
+- `server.mjs` binds to `127.0.0.1` locally, and to `0.0.0.0` when `RAILWAY_ENVIRONMENT` is set. It supports a `PORT` environment variable, and serves an explicit allowlist of core files plus journey files matching `journeys/<slug>/{text.md,journey.js,art.js,motion.js}`. Add other new browser assets to the allowlist. The app reads no other environment variables.
 - Open through the local server, not directly as a file: the app fetches each journey’s Markdown text.
 - Google Fonts supplies the typefaces; local fallback fonts work without internet. Artwork is local SVG.
 

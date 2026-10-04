@@ -45,6 +45,8 @@ npm start
 
 Then open <http://localhost:3000>. The server only listens on your own computer (`127.0.0.1`). Set `PORT` to use a different port. `npm run serve` starts it in the background instead.
 
+Publishing to <https://alex-reads.ink> is described in [docs/railway.md](docs/railway.md). Answers still stay in the browser.
+
 Open the app through the server, not as a file, because it fetches each journey's text.
 
 ## Privacy
