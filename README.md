@@ -29,6 +29,7 @@ There's no timer, no streaks and no pressure. Any chapter or question can be ope
 | 05 | Bizarre pizza's | The strangest pizza flavours of Asia |
 | 06 | Vliegen in de toekomst | Flying the Airbus A350 to Hong Kong |
 | 07 | Achter de schermen | How alex-reads.ink works, from the name to the server |
+| 08 | De stad zonder regels | Kowloon Walled City, and the cyberpunk stories that kept it alive |
 
 ### Comfortable reading
 
