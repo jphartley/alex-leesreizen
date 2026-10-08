@@ -41,17 +41,29 @@ There's no timer, no streaks and no pressure. Any chapter or question can be ope
 
 ## Running it
 
-You need Node.js 18 or newer. There's nothing to install:
+You need Node.js 18 or newer (`node --version`). There's nothing to install:
 
 ```sh
+git clone https://github.com/jphartley/alex-leesreizen.git
+cd alex-leesreizen
 npm start
 ```
 
-Then open <http://localhost:3000>. The server only listens on your own computer (`127.0.0.1`). Set `PORT` to use a different port. `npm run serve` starts it in the background instead.
+Then open <http://localhost:3000>. Press Ctrl+C to stop the server. It only listens on your own computer (`127.0.0.1`). Set `PORT` to use a different port, e.g. `PORT=4000 npm start`.
 
-Publishing to <https://alex-reads.ink> is described in [docs/railway.md](docs/railway.md). Answers still stay in the browser.
+To keep your terminal free, start it in the background instead. It prints the link, and adding a journey slug opens that journey directly:
+
+```sh
+npm run serve             # http://localhost:3000/
+npm run serve -- kowloon  # http://localhost:3000/#/kowloon
+lsof -ti tcp:3000 | xargs kill   # stop the background server
+```
 
 Open the app through the server, not as a file, because it fetches each journey's text.
+
+Answers you give on `localhost` are saved separately from answers on <https://alex-reads.ink>, because each address has its own `localStorage`. Testing locally never touches answers saved on the live site.
+
+Publishing to <https://alex-reads.ink> is described in [docs/railway.md](docs/railway.md). Answers still stay in the browser.
 
 ## Privacy
 
