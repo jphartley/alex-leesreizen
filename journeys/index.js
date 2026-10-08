@@ -8,5 +8,6 @@ import a350 from './a350/journey.js';
 import website from './website/journey.js';
 import kowloon from './kowloon/journey.js';
 import kowloonOpus from './kowloon-opus5-5-xhigh/journey.js';
+import shooters from './shooters/journey.js';
 
-export const journeys = [taiwan, smakenVerleden, hongkong, tempels, pizza, a350, website, kowloon, kowloonOpus];
+export const journeys = [taiwan, smakenVerleden, hongkong, tempels, pizza, a350, website, kowloon, kowloonOpus, shooters];

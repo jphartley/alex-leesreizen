@@ -5,7 +5,7 @@ description: Add a new reading journey to Alex's app from a Dutch text and two o
 
 # Add a reading journey
 
-Jeremy supplies a Dutch text (a title and 3–5 paragraphs) and two open questions. You write everything else, including the seven multiple-choice questions.
+Jeremy supplies a Dutch text (a title and 3–6 paragraphs) and two open questions. You write everything else, including the seven multiple-choice questions.
 
 **Work efficiently.** `AGENTS.md` is already loaded as project instructions, so don't re-read it. Use `journeys/smaken-verleden/` as the reference: read its `journey.js` for the schema, and its `art.js` and `motion.js` for patterns. Only open `journeys/taiwan/` if you need a second example. Write each file in one go, don't re-read files you've just written, and let the scripts in step 6 do the checking. Only dig into output when something fails.
 
@@ -14,7 +14,7 @@ UI copy is Dutch; code, comments and commit messages are English. The copy is wa
 ## 1. Confirm the input
 
 - Don't ask Jeremy for usage or cost readings. If he volunteers before and after readings himself, add a row to `COSTS.md` (date, before, after, cost = after − before); otherwise skip it.
-- Check there is a title, 3–5 paragraphs and two open questions. If the open questions are missing, ask for them before writing anything. If a paragraph is very long (over ~150 words), say so and ask whether to keep it; don't split it yourself.
+- Check there is a title, 3–6 paragraphs and two open questions. If the open questions are missing, ask for them before writing anything. If a paragraph is very long (over ~150 words), say so and ask whether to keep it; don't split it yourself.
 - Suggest a slug (lowercase, dashes, e.g. `ijsland`) and the next number (`02`, `03`, …). Ask only if unclear.
 - Never change the text or the open questions. Point out typos or factual doubts you notice and let Jeremy decide.
 

@@ -29,7 +29,7 @@ for (const j of journeys) {
   if (!Array.isArray(j.completion?.heading) || !j.completion.heading.every(isText)) fail(at, 'completion.heading must be an array of lines');
 
   const chapters = j.chapters ?? [];
-  if (chapters.length < 3 || chapters.length > 5) fail(at, `needs 3–5 chapters, has ${chapters.length}`);
+  if (chapters.length < 3 || chapters.length > 6) fail(at, `needs 3–6 chapters, has ${chapters.length}`);
   chapters.forEach((c, i) => {
     for (const field of ['title', 'short', 'label', 'icon', 'aside', 'caption', 'note']) if (!isText(c[field])) fail(at, `chapter ${i} missing ${field}`);
     if (c.variants && (!Array.isArray(c.variants) || !c.variants.every(v => isText(v.id) && isText(v.label)))) fail(at, `chapter ${i} variants need id and label`);
