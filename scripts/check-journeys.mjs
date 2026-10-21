@@ -70,7 +70,7 @@ for (const j of journeys) {
   chapters.forEach((_, i) => { if (!covered.has(i)) warn(at, `no multiple-choice question about chapter ${i + 1}`); });
 
   const written = j.written ?? [];
-  if (written.length !== 2) fail(at, `needs 2 open questions, has ${written.length}`);
+  if (written.length < 2 || written.length > 3) fail(at, `needs 2–3 open questions, has ${written.length}`);
   written.forEach((w, i) => {
     for (const field of ['q', 'label', 'model']) if (!isText(w[field])) fail(at, `open question ${i + 1} missing ${field}`);
     if (!Number.isInteger(w.chapter) || !chapters[w.chapter]) fail(at, `open question ${i + 1} chapter out of range`);

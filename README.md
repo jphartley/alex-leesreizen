@@ -11,7 +11,7 @@ Each journey takes one Dutch text of 3–6 paragraphs and turns it into a short 
 - **Illustrated chapters**, one per paragraph, each with its own flat SVG drawing. Each journey opens with a gently animated scene.
 - **Word help:** harder words are highlighted, and tapping one shows a child-friendly explanation.
 - **Seven multiple-choice questions**, each with an explanation of the right answer and a score at the end.
-- **Two open questions** answered in your own words, then compared with an example answer. They aren't graded automatically, so you can talk them over together.
+- **Two or three open questions** answered in your own words, then compared with an example answer. They aren't graded automatically, so you can talk them over together.
 - **A personal closing message** and the option to start the journey again.
 
 There's no timer, no streaks and no pressure. Any chapter or question can be opened at any time.
@@ -31,6 +31,7 @@ There's no timer, no streaks and no pressure. Any chapter or question can be ope
 | 07 | Achter de schermen | How alex-reads.ink works, from the name to the server |
 | 08 | De stad zonder regels | Kowloon Walled City and cyberpunk; the preferred version |
 | 09 | Van Doom tot Roblox: De Evolutie van de Shooter | How shooters evolved through Doom, Quake, Half-Life and Roblox Rivals |
+| 10 | De Magische Wereld van Japanse Manga | Japanese comics and the influence of Tezuka, Toriyama and Oda |
 
 The original Grok Kowloon journey is archived: it stays available at `#/kowloon`, including its chapters, quiz and saved answers, but is hidden from the landing page and header switcher. The preferred version keeps its existing `#/kowloon-opus5-5-xhigh` URL. Display numbers can change; URL slugs and saved-answer keys stay unchanged.
 
@@ -100,11 +101,11 @@ The browser checks use the Chrome on your machine with a throwaway profile, so t
 
 ## Adding journeys with AI coding tools
 
-The app began with [Claude Code](https://claude.com/claude-code). Its `new-journey` workflow is now shared with Claude Code, Cursor and OpenAI Codex. Supply a Dutch text (a title and 3–6 paragraphs) and two open questions. The agent writes the chapters, glossary, multiple-choice questions and explanations, example answers, illustrations and animation, then registers the journey and checks it in a browser.
+The app began with [Claude Code](https://claude.com/claude-code). Its `new-journey` workflow is now shared with Claude Code, Cursor and OpenAI Codex. Supply a Dutch text (a title and 3–6 paragraphs) and two or three open questions. The agent writes the chapters, glossary, multiple-choice questions and explanations, example answers, illustrations and animation, then registers the journey and checks it in a browser.
 
 There is one source of truth: [.agents/skills/new-journey/SKILL.md](.agents/skills/new-journey/SKILL.md). Edit that file to update the workflow for every tool.
 
-Use `/new-journey` in a chat attached to this repository. Include the Dutch text and two open questions, or send the command first and the agent will ask for them. `AGENTS.md` explicitly routes that message to the shared workflow, even when a client has not listed the skill.
+Use `/new-journey` in a chat attached to this repository. Include the Dutch text and two or three open questions, or send the command first and the agent will ask for them. `AGENTS.md` explicitly routes that message to the shared workflow, even when a client has not listed the skill.
 
 | Client | Repository entry point | Command behavior |
 |---|---|---|
