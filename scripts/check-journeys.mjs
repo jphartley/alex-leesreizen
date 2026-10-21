@@ -1,6 +1,6 @@
 // Dev-time checks for journey content and saved-data migration. Run with `npm run check`.
 import { readFile } from 'node:fs/promises';
-import { journeys } from '../journeys/index.js';
+import { journeys, visibleJourneys } from '../journeys/index.js';
 import { migrateV1 } from '../store.js';
 
 const errors = [], warnings = [];
@@ -13,6 +13,13 @@ const parseText = markdown => {
   return { title: blocks.find(b => b.startsWith('# ')), paragraphs: blocks.filter(b => !b.startsWith('#')) };
 };
 const containsWord = (text, word) => new RegExp(`(?<![\\p{L}\\p{N}])${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}])`, 'u').test(text);
+
+// Visible journey numbers and home headings must agree, with no gaps after archiving.
+visibleJourneys.forEach((j, i) => {
+  const number = String(i + 1).padStart(2, '0');
+  if (j.number !== number) fail(j.slug, `visible journey number must be ${number}`);
+  if (!j.home?.label.startsWith(`LEESREIS ${number} · `)) fail(j.slug, 'home label must match the visible journey number');
+});
 
 const slugs = new Set();
 for (const j of journeys) {

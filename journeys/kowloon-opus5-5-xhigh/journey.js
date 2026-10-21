@@ -6,11 +6,11 @@ import { animate } from './motion.js';
 export default {
   slug: 'kowloon-opus5-5-xhigh',
   name: 'De stad zonder regels',
-  number: '09',
+  number: '08',
   meta: { title: 'De stad zonder regels', description: 'Een reis door Kowloon Walled City, het donkere doolhof in Hongkong dat cyberpunk inspireerde. Een interactief Nederlands leesavontuur voor Alex.' },
   card: { title: 'De stad *zonder regels*', blurb: 'Huizen op huizen, flikkerend neon en steegjes waar de zon nooit kwam. Ontdek de stad die films en games inspireerde.' },
   home: {
-    label: 'LEESREIS 09 · HONGKONG', greeting: 'Hé Alex, pak je zaklamp maar.', heading: ['De stad', 'zonder *regels.*'],
+    label: 'LEESREIS 08 · HONGKONG', greeting: 'Hé Alex, pak je zaklamp maar.', heading: ['De stad', 'zonder *regels.*'],
     description: 'Een vergeten fort, duizenden buren en steegjes vol neonlicht. Ontdek hoe een piepklein stukje Hongkong een doolhof werd dat nog altijd voortleeft in films en games.',
     cta: 'Stap het doolhof in', location: 'KOWLOON, HONGKONG', stamp: ['DOOLHOF', 'Kowloon', 'LEES & ZOEK'],
     caption: 'Waar vliegtuigen bijna de antennes raakten.', routeHeading: 'Jouw route door het doolhof',

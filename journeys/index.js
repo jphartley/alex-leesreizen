@@ -1,4 +1,4 @@
-// All reading journeys, in the order they appear on the landing page and in the header switcher.
+// Keep every journey routable, including archived journeys with existing links and saved answers.
 import taiwan from './taiwan/journey.js';
 import smakenVerleden from './smaken-verleden/journey.js';
 import hongkong from './hongkong/journey.js';
@@ -11,3 +11,5 @@ import kowloonOpus from './kowloon-opus5-5-xhigh/journey.js';
 import shooters from './shooters/journey.js';
 
 export const journeys = [taiwan, smakenVerleden, hongkong, tempels, pizza, a350, website, kowloon, kowloonOpus, shooters];
+// Only active journeys appear on the landing page and in the header switcher.
+export const visibleJourneys = journeys.filter(j => !j.archived);

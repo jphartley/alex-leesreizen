@@ -3,7 +3,7 @@
 // With no slugs it checks every journey. Prints only failures (and passes with --verbose), then a
 // summary. Runs its own server and a throwaway browser profile; Alex's saved answers are never touched.
 import { readFile } from 'node:fs/promises';
-import { journeys } from '../journeys/index.js';
+import { journeys, visibleJourneys } from '../journeys/index.js';
 import { launch, startServer, wait } from './lib/browser.mjs';
 
 const args = process.argv.slice(2), verbose = args.includes('--verbose');
@@ -33,16 +33,45 @@ try {
   check('v1 data left untouched', await page.eval(`localStorage.getItem('alex-thee-avontuur-v1')`) === JSON.stringify(v1));
   check('old route #home redirects', await page.eval('location.hash') === '#/taiwan');
   await page.eval(`localStorage.clear()`); await page.go('#/', 0); await page.reload();
-  check('landing: one card per journey', await page.eval(`document.querySelectorAll('.journey-card').length`) === journeys.length);
+  const visibleLinks = visibleJourneys.map(j => `#/${j.slug}`);
+  check('landing: active journeys in order', JSON.stringify(await page.eval(`[...document.querySelectorAll('.journey-card')].map(a => a.getAttribute('href'))`)) === JSON.stringify(visibleLinks));
+  check('switcher: active journeys in order', JSON.stringify(await page.eval(`[...document.querySelectorAll('#journey-list a:not(.journey-all)')].map(a => a.getAttribute('href'))`)) === JSON.stringify(visibleLinks));
+  const menuNumbers = visibleJourneys.map((_, i) => `LEESREIS ${String(i + 1).padStart(2, '0')}`);
+  for (const selector of ['.journey-card small', '#journey-list small']) {
+    check(`${selector}: consecutive visible numbers`, JSON.stringify(await page.eval(`[...document.querySelectorAll(${JSON.stringify(selector)})].map(e => e.textContent.split(' · ')[0])`)) === JSON.stringify(menuNumbers));
+  }
   check('landing: no duplicate SVG ids', await page.eval(noDuplicateIds));
+
+  // Existing answers remain separate under the original slugs, including the archived journey.
+  const preservedSlugs = ['kowloon', 'kowloon-opus5-5-xhigh', 'shooters'];
+  const existing = Object.fromEntries(preservedSlugs.map((slug, i) => [slug, { answers: { 0: i }, written: { 0: `Bestaand antwoord ${i}` } }]));
+  await page.eval(`localStorage.setItem('alex-leesavontuur-v2', ${JSON.stringify(JSON.stringify({ version: 2, settings: { calm: false, large: false }, journeys: existing }))})`);
+  await page.reload();
+  for (const [i, slug] of preservedSlugs.entries()) {
+    await page.go(`#/${slug}/quiz-1`); await page.reload();
+    check(`${slug}: existing multiple-choice answer loads`, await page.eval(`!!document.querySelector('[data-answer="${i}"]:disabled')`));
+    const j = journeys.find(j => j.slug === slug);
+    await page.go(`#/${slug}/quiz-${j.questions.length + 1}`);
+    check(`${slug}: existing written answer loads`, await page.eval(`document.querySelector('#written-answer').value`) === existing[slug].written[0]);
+  }
+  await page.eval(`document.querySelector('#font-toggle').click(); document.querySelector('#font-toggle').click()`);
+  check('existing answers survive navigation, reload and save', JSON.stringify((await saved(page)).journeys) === JSON.stringify(existing));
+  await page.eval(`localStorage.clear()`); await page.go('#/', 0); await page.reload();
 
   for (const j of targets) {
     const at = label => `${j.slug}: ${label}`, mc = j.questions.length, total = mc + j.written.length, n = j.chapters.length;
     const text = await readFile(new URL(`../journeys/${j.slug}/text.md`, import.meta.url), 'utf8');
     await page.go('#/', 300);
-    await page.eval(`document.querySelector('#journey-toggle').click()`);
-    await page.eval(`document.querySelector('#journey-list a[href="#/${j.slug}"]').click()`); await wait(700);
-    check(at('switcher opens the journey'), await page.eval('location.hash') === `#/${j.slug}`);
+    if (j.archived) {
+      check(at('archived journey absent from both menus'), await page.eval(`!document.querySelector('.journey-card[href="#/${j.slug}"], #journey-list a[href="#/${j.slug}"]')`));
+      await page.go(`#/${j.slug}`, 700);
+      check(at('archived direct link works'), await page.eval('location.hash') === `#/${j.slug}`);
+    } else {
+      await page.eval(`document.querySelector('#journey-toggle').click()`);
+      await page.eval(`document.querySelector('#journey-list a[href="#/${j.slug}"]').click()`); await wait(700);
+      check(at('switcher opens the journey'), await page.eval('location.hash') === `#/${j.slug}`);
+    }
+    check(at('home label'), await page.eval(`document.querySelector('.home .travel-label').textContent.trim()`) === j.home.label);
     check(at('switcher label'), await page.eval(`document.querySelector('#journey-toggle').getAttribute('aria-label')`) === `Wissel van leesreis, nu: ${j.name}`);
     check(at('home: hero scene and counts'), await page.eval(`!!document.querySelector('.hero-art svg[data-scene]') && document.querySelector('.hero-meta').textContent`) === `${n} korte hoofdstukken${total} vragenOp jouw tempo`);
     check(at('document title'), (await page.eval('document.title')).startsWith(j.meta.title));

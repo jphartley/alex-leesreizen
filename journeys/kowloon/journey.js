@@ -5,6 +5,7 @@ import { animate } from './motion.js';
 
 export default {
   slug: 'kowloon',
+  archived: true,
   name: 'Kowloon',
   number: '08',
   meta: {
@@ -16,7 +17,7 @@ export default {
     blurb: 'Neon, steegjes en een doolhof dat nooit helemaal verdween. Stap Kowloon Walled City binnen.',
   },
   home: {
-    label: 'LEESREIS 08 · HONGKONG',
+    label: 'ARCHIEF · HONGKONG',
     greeting: 'Hé Alex, kijk eens omhoog.',
     heading: ['De stad zonder', '*regels.*'],
     description: 'Een piepklein stukje land midden in Hongkong, vol steegjes, neon en verhalen. Ontdek Kowloon Walled City, en waarom die stad in games en films blijft leven.',

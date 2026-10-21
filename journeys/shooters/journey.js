@@ -3,11 +3,11 @@ import * as art from './art.js';
 import { animate } from './motion.js';
 
 export default {
-  slug: 'shooters', name: 'Van Doom tot Roblox', number: '10',
+  slug: 'shooters', name: 'Van Doom tot Roblox', number: '09',
   meta: { title: 'Van Doom tot Roblox: De Evolutie van de Shooter', description: 'Van platte plaatjes tot samen spelen: ontdek de geschiedenis van shooters. Een Nederlandse leesreis voor Alex.' },
   card: { title: 'Van Doom tot *Roblox*', blurb: 'Een oude computer, werelden met diepte en vrienden online. Ontdek hoe shooters veranderden.' },
   home: {
-    label: 'LEESREIS 10 · GAMEGESCHIEDENIS', greeting: 'Hé Alex, klaar voor een reis door games?', heading: ['Van Doom', 'tot *Roblox.*'],
+    label: 'LEESREIS 09 · GAMEGESCHIEDENIS', greeting: 'Hé Alex, klaar voor een reis door games?', heading: ['Van Doom', 'tot *Roblox.*'],
     description: 'Hoe groeide een gamegenre van platte plaatjes naar grote online werelden? Reis langs Doom, Quake, Half-Life en Roblox Rivals.',
     cta: 'Begin je gamereis', location: 'VAN PIXELS TOT ONLINE WERELDEN', stamp: ['ONTDEK', 'Games', 'LEES & SPEEL'],
     caption: 'Elke nieuwe computerwereld bouwt voort op een vorige.', routeHeading: 'Jouw route door de gamegeschiedenis',
