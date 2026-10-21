@@ -98,11 +98,29 @@ npm run screenshot -- '#/taiwan' --text   # screenshot, plus a text tone map
 
 The browser checks use the Chrome on your machine with a throwaway profile, so they never touch real saved answers.
 
-## Made with Claude Code
+## Adding journeys with AI coding tools
 
-The app and its journeys are written with [Claude Code](https://claude.com/claude-code). To add a journey, I supply a Dutch text (a title and 3–6 paragraphs) and two open questions, and run the `/new-journey` skill (`.claude/skills/new-journey/SKILL.md`). Claude writes the rest: the chapters, glossary, multiple-choice questions and explanations, example answers, illustrations and animation. It then registers the journey and checks it in a browser.
+The app began with [Claude Code](https://claude.com/claude-code). Its `new-journey` workflow is now shared with Claude Code, Cursor and OpenAI Codex. Supply a Dutch text (a title and 3–6 paragraphs) and two open questions. The agent writes the chapters, glossary, multiple-choice questions and explanations, example answers, illustrations and animation, then registers the journey and checks it in a browser.
 
-`AGENTS.md` holds the project conventions that Claude follows: Dutch for everything Alex sees, English for code and docs, a warm tone, and never reordering the questions of a published journey because saved answers depend on their order.
+There is one source of truth: [.agents/skills/new-journey/SKILL.md](.agents/skills/new-journey/SKILL.md). Edit that file to update the workflow for every tool.
+
+Use `/new-journey` in a chat attached to this repository. Include the Dutch text and two open questions, or send the command first and the agent will ask for them. `AGENTS.md` explicitly routes that message to the shared workflow, even when a client has not listed the skill.
+
+| Client | Repository entry point | Command behavior |
+|---|---|---|
+| Claude Code | `.claude/skills/new-journey/SKILL.md` | Native `/new-journey` skill; loads the shared workflow |
+| Cursor | `.cursor/commands/new-journey.md` and `.agents/skills/new-journey/SKILL.md` | Native `/new-journey` command/skill; loads the shared workflow |
+| ChatGPT / Codex desktop app | `.agents/skills/new-journey/SKILL.md` and `agents/openai.yaml` | Enabled skills appear in the slash-command menu when the app discovers this repository skill |
+| Codex CLI / IDE | `.agents/skills/new-journey/SKILL.md` | Native skill invocation is `$new-journey` or `/skills`; support for direct `/new-journey` depends on the client |
+| ChatGPT web / cloud coding chat | `AGENTS.md` and the shared workflow in the attached checkout | Submit `/new-journey` as a message for the agent to follow; repository files do not register a custom web composer command |
+
+A chat started from GitHub needs the latest `main` containing these files; local uncommitted changes are unavailable to a separate checkout. Pull the latest `main` for local tools, or start a new cloud coding chat on this repository after the change is pushed. Reload the client if its skill list is cached.
+
+`/new-journey` must reach an agent with access to this repository and its `AGENTS.md`. A client that rejects unknown slash commands before sending them cannot be given a new native slash command by project instructions; use that client’s supported skill picker. Project files cannot change the command menus in unrelated chats or install account-wide skills.
+
+The Claude and Cursor entry points are ordinary Markdown files, so they survive checkouts without symlink support. The workflow remains in the shared file. `CLAUDE.md` imports `AGENTS.md` so Claude receives the same project instructions. New journey numbers follow the active menu sequence; archived journeys retain their URLs and saved answers.
+
+Discovery and client differences follow the official [Codex skill documentation](https://developers.openai.com/codex/skills), [desktop slash-command documentation](https://learn.chatgpt.com/docs/reference/slash-commands), [Codex developer commands](https://learn.chatgpt.com/docs/developer-commands), [Cursor skill documentation](https://cursor.com/docs/skills), and [Claude Code skill documentation](https://code.claude.com/docs/en/skills).
 
 The texts themselves come from me. The quiz answers are checked by a human, because the automated checks can't tell whether an answer is factually right.
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "new-journey"
+  short_description: "Add an illustrated Dutch reading journey for Alex"
+  default_prompt: "Use $new-journey to add a reading journey from the supplied Dutch text and two open questions."
