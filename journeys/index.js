@@ -10,7 +10,8 @@ import kowloon from './kowloon/journey.js';
 import kowloonOpus from './kowloon-opus5-5-xhigh/journey.js';
 import shooters from './shooters/journey.js';
 import manga from './manga/journey.js';
+import ketiKoti from './keti-koti/journey.js';
 
-export const journeys = [taiwan, smakenVerleden, hongkong, tempels, pizza, a350, website, kowloon, kowloonOpus, shooters, manga];
+export const journeys = [taiwan, smakenVerleden, hongkong, tempels, pizza, a350, website, kowloon, kowloonOpus, shooters, manga, ketiKoti];
 // Only active journeys appear on the landing page and in the header switcher.
 export const visibleJourneys = journeys.filter(j => !j.archived);
