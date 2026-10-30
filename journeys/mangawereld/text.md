@@ -1,0 +1,9 @@
+# De grenzeloze groei van de mangawereld
+
+Manga, de bekende Japanse stripboeken, zijn populairder dan ooit. Vroeger moest je er in Europa echt naar zoeken in gespecialiseerde stripwinkels, maar tegenwoordig hebben de meeste grote boekhandels hele kasten vol staan. De mangacultuur is de afgelopen jaren sterk veranderd, zowel in Japan als in de rest van de wereld.
+
+Een van de belangrijkste trends is de enorme wereldwijde groei dankzij de 'anime-boost'. Zodra een mangaserie wordt bewerkt tot een anime (tekenfilm) en op streamingdiensten zoals Netflix of Crunchyroll verschijnt, exploderen de verkoopcijfers van het stripboek. Series zoals Jujutsu Kaisen en Demon Slayer zijn hier goede voorbeelden van. Fans hebben na het zien van de afleveringen vaak geen geduld om een jaar op het volgende tv-seizoen te wachten. Ze rennen naar de winkel om de rest van het verhaal direct in mangavorm te lezen.
+
+Daarnaast is er een grote digitale verschuiving gaande. Hoewel fysieke papieren boekjes in Japan nog altijd veel verkocht worden, lezen steeds meer jongeren op hun smartphone. Dit komt deels door de opkomst van Zuid-Koreaanse 'Webtoons'. Dit zijn digitale strips in kleur die je niet als een boek omslaat, maar waarbij je soepel van boven naar beneden over je scherm scrollt. Deze leeswijze is wereldwijd zo succesvol dat veel Japanse uitgeverijen hun traditionele zwart-wit pagina's nu ook beginnen aan te passen aan dit moderne, verticale formaat.
+
+Tot slot verandert de afkomst van de makers. Manga is allang niet meer uitsluitend iets voor Japanse tekenaars. In Frankrijk, het land waar na Japan de meeste manga ter wereld wordt verkocht, schrijven en tekenen Europese artiesten inmiddels hun eigen verhalen in de bekende Japanse stijl. Deze strips worden ook wel 'manfra' genoemd. Wat ooit begon als een puur Japanse traditie, is nu uitgegroeid tot een wereldwijde miljardenindustrie die continu in beweging is.

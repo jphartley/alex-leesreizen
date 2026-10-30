@@ -33,6 +33,7 @@ There's no timer, no streaks and no pressure. Any chapter or question can be ope
 | 09 | Van Doom tot Roblox: De Evolutie van de Shooter | How shooters evolved through Doom, Quake, Half-Life and Roblox Rivals |
 | 10 | De Magische Wereld van Japanse Manga | Japanese comics and the influence of Tezuka, Toriyama and Oda |
 | 11 | Slavernij, Keti Koti en de excuses van de koning | Dutch slavery, its abolition in 1863 and 1873, and the king's apology in 2023 |
+| 12 | De grenzeloze groei van de mangawereld | How manga grew worldwide: the anime boost, Webtoons and manfra |
 
 The original Grok Kowloon journey is archived: it stays available at `#/kowloon`, including its chapters, quiz and saved answers, but is hidden from the landing page and header switcher. The preferred version keeps its existing `#/kowloon-opus5-5-xhigh` URL. Display numbers can change; URL slugs and saved-answer keys stay unchanged.
 
