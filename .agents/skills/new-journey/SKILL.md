@@ -58,7 +58,7 @@ Rules for every SVG:
 
 ## 5. `journeys/<slug>/motion.js`
 
-`export function animate({ gsap, q, random, alive })`: the hero choreography. Keep it subtle, not a flash ad. Use a short entrance, then slow loops (5–30 s) of small transforms and opacity. One occasional coordinated moment (like Taiwan's breeze) is welcome. Check `alive()` before scheduling anything from a callback. The shared `motion.js` already handles quiet mode, reduced motion and clean-up.
+`export function animate({ gsap, q, random, alive })`: the hero choreography. Keep it subtle, not a flash ad. Use a short entrance, then slow loops (5–30 s) of small transforms and opacity. One occasional coordinated moment (like Taiwan's breeze) is welcome. Check `alive()` before scheduling anything from a callback. The shared `motion.js` already handles quiet mode, reduced motion and clean-up. The context also carries `svg` and `container` (`.hero-art` on the journey home, `#chapter-art` on chapter 1), and `animate()` may return a clean-up function; only needed when you add event listeners or a `gsap.ticker` callback, as the `pokemon-mythes` Dragon Gate game does. Interactive scenes capture keys only while the SVG has focus, stay desktop-only and never store anything.
 
 ## 6. Register and check
 

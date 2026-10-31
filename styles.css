@@ -59,3 +59,5 @@
 .journey-toggle-text{display:none}
 .journey-list{left:auto;right:-60px}
 }
+/* Hero scenes that contain a keyboard game focus the SVG itself. */
+.hero-art svg[tabindex]{cursor:pointer}.hero-art svg[tabindex]:focus{outline:none}.hero-art svg[tabindex]:focus-visible{outline:3px solid #b77832;outline-offset:-4px}
