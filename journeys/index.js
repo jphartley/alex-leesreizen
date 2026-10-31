@@ -14,7 +14,8 @@ import ketiKoti from './keti-koti/journey.js';
 import mangawereld from './mangawereld/journey.js';
 import halloween from './halloween/journey.js';
 import godenwereld from './godenwereld/journey.js';
+import pokemonKnuffels from './pokemon-knuffels/journey.js';
 
-export const journeys = [taiwan, smakenVerleden, hongkong, tempels, pizza, a350, website, kowloon, kowloonOpus, shooters, manga, ketiKoti, mangawereld, halloween, godenwereld];
+export const journeys = [taiwan, smakenVerleden, hongkong, tempels, pizza, a350, website, kowloon, kowloonOpus, shooters, manga, ketiKoti, mangawereld, halloween, godenwereld, pokemonKnuffels];
 // Only active journeys appear on the landing page and in the header switcher.
 export const visibleJourneys = journeys.filter(j => !j.archived);

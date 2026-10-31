@@ -36,6 +36,7 @@ There's no timer, no streaks and no pressure. Any chapter or question can be ope
 | 12 | De grenzeloze groei van de mangawereld | How manga grew worldwide: the anime boost, Webtoons and manfra |
 | 13 | Van Keltisch vuur tot griezelfeest | The history of Halloween, from Celtic Samhain to American pumpkins |
 | 14 | De levende godenwereld | Hinduism's living pantheon: village gods, new gods like Bullet Baba, and gods that cross borders |
+| 15 | De verborgen wereld van Pokémon-knuffels | Rare and handmade Pokémon plushies: the Van Gogh Pikachu, the Gengar tongue bed, a life-size Furret and a custom Arcanine |
 
 The original Grok Kowloon journey is archived: it stays available at `#/kowloon`, including its chapters, quiz and saved answers, but is hidden from the landing page and header switcher. The preferred version keeps its existing `#/kowloon-opus5-5-xhigh` URL. Display numbers can change; URL slugs and saved-answer keys stay unchanged.
 
