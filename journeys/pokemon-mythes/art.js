@@ -1,6 +1,7 @@
 // Pokémon-mythes artwork: original SVG illustrations of the legends behind four Pokémon, all local.
 // The hero is also the playing field of the Dragon Gate game: motion.js reads the .rock and .surge
-// obstacles from this markup and moves .carp-pos, .dragon-pos and the hints. Every id is prefixed
+// obstacles from this markup (keep their bands apart so a clean run stays possible) and moves .carp-pos,
+// .dragon-pos and the hints. Every id is prefixed
 // with the journey slug so several journeys can share a page.
 const slug = 'pokemon-mythes';
 
@@ -98,9 +99,9 @@ function valley(id) {
   <g fill="#8fa27a"><path d="M40 184h60v26H40ZM210 300h50v22h-50ZM620 184h70v26h-70ZM420 380h50v22h-50Z"/></g></g>
   <path d="M300 100H420V612H300Z" fill="url(#${p}-falls)"/>
   <g clip-path="url(#${p}-fallsclip)">${foam}<path d="M312 120v480M340 110v500M368 104v510M396 112v496" stroke="${C.snow}" stroke-width="2" opacity=".25"/></g>
-  <g class="rocks"><ellipse class="rock" cx="326" cy="470" rx="30" ry="16" fill="${C.rock}"/><ellipse class="rock" cx="396" cy="360" rx="30" ry="16" fill="${C.rock}"/><ellipse class="rock" cx="342" cy="250" rx="26" ry="14" fill="${C.rock}"/>
-  <path d="M300 458q26-14 52 0M370 348q26-14 52 0M320 240q22-12 44 0" stroke="${C.snow}" stroke-width="4" fill="none" opacity=".6"/></g>
-  <ellipse class="surge" cx="360" cy="310" rx="40" ry="9" fill="${C.snow}" opacity=".85"/>
+  <g class="rocks"><ellipse class="rock" cx="320" cy="520" rx="30" ry="16" fill="${C.rock}"/><ellipse class="rock" cx="400" cy="390" rx="30" ry="16" fill="${C.rock}"/><ellipse class="rock" cx="342" cy="190" rx="26" ry="14" fill="${C.rock}"/>
+  <path d="M294 508q26-14 52 0M374 378q26-14 52 0M320 180q22-12 44 0" stroke="${C.snow}" stroke-width="4" fill="none" opacity=".6"/></g>
+  <ellipse class="surge" cx="360" cy="290" rx="32" ry="9" fill="${C.snow}" opacity=".85"/>
   ${gate(360, 100, 1)}
   <g class="mist" fill="${C.snow}" opacity=".5"><ellipse cx="330" cy="172" rx="40" ry="8"/><ellipse cx="400" cy="178" rx="36" ry="7"/></g>
   <circle class="flash" cx="360" cy="140" r="70" fill="#fffbe0" opacity="0"/>
