@@ -38,6 +38,7 @@ There's no timer, no streaks and no pressure. Any chapter or question can be ope
 | 14 | De levende godenwereld | Hinduism's living pantheon: village gods, new gods like Bullet Baba, and gods that cross borders |
 | 15 | De verborgen wereld van Pokémon-knuffels | Rare and handmade Pokémon plushies: the Van Gogh Pikachu, the Gengar tongue bed, a life-size Furret and a custom Arcanine |
 | 16 | De mythische oorsprong van Pokémon | The myths behind Ninetales, Gyarados, Froslass and Thundurus; the hero scene is a small keyboard game on desktop |
+| 17 | Een legende keert terug | Why Nintendo rebuilt Ocarina of Time for the Switch 2, what changed and what fans think; the hero scene is an ocarina melody game on desktop |
 
 The original Grok Kowloon journey is archived: it stays available at `#/kowloon`, including its chapters, quiz and saved answers, but is hidden from the landing page and header switcher. The preferred version keeps its existing `#/kowloon-opus5-5-xhigh` URL. Display numbers can change; URL slugs and saved-answer keys stay unchanged.
 
@@ -88,7 +89,7 @@ motion.js                        shared animation runtime
 server.mjs                       small local static server
 journeys/index.js                all routable journeys and the visible menu list
 journeys/<slug>/
-  text.md                        the Dutch text: a title and paragraphs
+  text.md                        the Dutch text: a title and paragraphs ("- " lines become bullets)
   journey.js                     chapters, glossary, questions, all copy
   art.js                         SVG illustrations
   motion.js                      the hero animation

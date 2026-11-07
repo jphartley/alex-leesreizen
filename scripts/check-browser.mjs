@@ -84,8 +84,10 @@ try {
     check(at('hero animation running'), await page.eval(activeTweens) > 3 && moving >= 3, `${moving} elements moved`);
 
     const highlighted = new Set();
+    let listItems = 0;
     for (let i = 0; i < n; i++) {
       await page.go(`#/${j.slug}/chapter-${i}`);
+      listItems += await page.eval(`document.querySelectorAll('.story-text li').length`);
       (await page.eval(`[...document.querySelectorAll('.vocab')].map(b => b.dataset.word)`)).forEach(w => highlighted.add(w));
       check(at(`chapter ${i + 1} renders`), await page.eval(`!!document.querySelector('#chapter-art svg') && document.querySelector('.story-text').textContent.length > 100 && ${noDuplicateIds}`));
       for (const v of j.chapters[i].variants ?? []) {
@@ -93,6 +95,7 @@ try {
         check(at(`chapter ${i + 1} variant ${v.id}`), await page.eval(`document.querySelector('[data-variant="${v.id}"]').getAttribute('aria-pressed') === 'true' && !!document.querySelector('#chapter-art svg')`));
       }
     }
+    check(at('"- " lines render as bullet points'), listItems === (text.match(/^- /gm) ?? []).length, `${listItems} items`);
     const missing = Object.keys(j.dictionary).filter(w => !highlighted.has(w));
     check(at('every glossary word highlighted'), !missing.length, missing.join(', '));
     if (n) {

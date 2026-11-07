@@ -22,7 +22,7 @@ UI copy is Dutch; code, comments and commit messages are English. The copy is wa
 
 ## 2. `journeys/<slug>/text.md`
 
-`# Title`, a blank line, then the paragraphs exactly as supplied, separated by blank lines. `*word*` marks emphasis. Nothing else in the file: the open questions go in `journey.js`, not here.
+`# Title`, a blank line, then the paragraphs exactly as supplied, separated by blank lines. `*word*` marks emphasis. A paragraph may end in a list: put each item on its own line starting with `- `, directly under the paragraph with no blank line, and the app shows them as bullet points. Nothing else in the file: the open questions go in `journey.js`, not here, and subheadings in the supplied text become chapter titles.
 
 ## 3. `journeys/<slug>/journey.js`
 
@@ -58,7 +58,7 @@ Rules for every SVG:
 
 ## 5. `journeys/<slug>/motion.js`
 
-`export function animate({ gsap, q, random, alive })`: the hero choreography. Keep it subtle, not a flash ad. Use a short entrance, then slow loops (5–30 s) of small transforms and opacity. One occasional coordinated moment (like Taiwan's breeze) is welcome. Check `alive()` before scheduling anything from a callback. The shared `motion.js` already handles quiet mode, reduced motion and clean-up. The context also carries `svg` and `container` (`.hero-art` on the journey home, `#chapter-art` on chapter 1), and `animate()` may return a clean-up function; only needed when you add event listeners or a `gsap.ticker` callback, as the `pokemon-mythes` Dragon Gate game does. Interactive scenes capture keys only while the SVG has focus, stay desktop-only and never store anything.
+`export function animate({ gsap, q, random, alive })`: the hero choreography. Keep it subtle, not a flash ad. Use a short entrance, then slow loops (5–30 s) of small transforms and opacity. One occasional coordinated moment (like Taiwan's breeze) is welcome. Check `alive()` before scheduling anything from a callback. The shared `motion.js` already handles quiet mode, reduced motion and clean-up. The context also carries `svg` and `container` (`.hero-art` on the journey home, `#chapter-art` on chapter 1), and `animate()` may return a clean-up function; only needed when you add event listeners or a `gsap.ticker` callback, as the `pokemon-mythes` Dragon Gate game does. Interactive scenes capture keys only while the SVG has focus, stay desktop-only and never store anything. Sound, as in the `ocarina` melody game, uses Web Audio, starts only after a key press or click and is closed in the clean-up function.
 
 ## 6. Register and check
 
