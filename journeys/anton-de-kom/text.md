@@ -1,0 +1,9 @@
+# Anton de Kom: Strijder tegen onrecht
+
+Anton de Kom (1898-1945) was een belangrijke Surinaamse schrijver, activist en verzetsheld. Hij werd geboren in Paramaribo, in een tijd dat Suriname nog een kolonie van Nederland was. Hoewel de slavernij in 1863 was afgeschaft, hoorde Anton van zijn vader — die wél als slaaf was geboren — verhalen over deze wrede tijd.
+
+Ondanks dat Anton in Suriname zijn diploma's haalde, kreeg hij door de heersende ongelijkheid en racisme geen eerlijke kans op een goede baan. Daarom vertrok hij in 1921 naar Nederland. Daar ontmoette hij de witte, Nederlandse Petronella met wie hij trouwde; in die tijd was zo'n gemengd huwelijk zeer ongewoon. In Nederland ontwikkelde Anton zich tot schrijver. Hij stoorde zich eraan dat Nederlanders zo weinig wisten over het slavernijverleden en de uitbuiting in Suriname. Daarom schreef hij het beroemde boek Wij slaven van Suriname (1934). Dit was uniek: het was het allereerste geschiedenisboek over Suriname dat door een Surinamer zélf was geschreven.
+
+Toen Anton in 1932 tijdelijk terugkeerde naar zijn geboorteland om zijn zieke moeder te bezoeken, opende hij een adviesbureau voor arme Surinamers. Hij hielp zoveel mensen dat hij de bijnaam 'papa De Kom' kreeg. De koloniale regering werd echter bang dat zijn invloed zou leiden tot een grote opstand. Na een demonstratie werd hij opgesloten en voorgoed verbannen uit zijn eigen land. Hij moest terugkeren naar Nederland en zou Suriname nooit meer terugzien.
+
+Ook in Nederland bleef Anton strijden tegen onderdrukking. Toen de Tweede Wereldoorlog uitbrak, sloot hij zich aan bij het verzet tegen de nazi's. Hij schreef onder andere voor de illegale krant De Vonk. Helaas werd hij in 1944 verraden en gearresteerd. Anton de Kom stierf in april 1945 in een Duits concentratiekamp, vlak voor de bevrijding. Tegenwoordig wordt hij gelukkig weer breed geëerd om zijn moedige, levenslange strijd tegen racisme en kolonialisme.
