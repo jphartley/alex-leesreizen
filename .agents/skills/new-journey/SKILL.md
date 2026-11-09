@@ -18,11 +18,11 @@ UI copy is Dutch; code, comments and commit messages are English. The copy is wa
 - Don't ask Jeremy for usage or cost readings. If he volunteers before and after readings himself, add a row to `COSTS.md` (date, before, after, cost = after − before); otherwise skip it.
 - Check there is a title, 3–6 paragraphs and two open questions. If the open questions are missing, ask for them before writing anything. If a paragraph is very long (over ~150 words), say so and ask whether to keep it; don't split it yourself.
 - Suggest a slug (lowercase, dashes, e.g. `ijsland`) and the next visible number (`02`, `03`, …), based on `visibleJourneys` in `journeys/index.js`. Archived journeys do not count toward menu numbering. Match the number in `home.label`, and keep existing journey slugs and question order unchanged. Ask only if unclear.
-- Never change the text or the open questions. Point out typos or factual doubts you notice and let Jeremy decide.
+- Correct clear grammatical, spelling and factual errors in the text and open questions yourself, without asking. Keep each fix minimal, in Jeremy's wording and style, and change nothing else (no rewriting for style, no added or removed content). Check the facts you are unsure of before writing; if something is only doubtful or disputed, leave it and mention it. Carry each fix through to the chapter labels, questions and model answers.
 
 ## 2. `journeys/<slug>/text.md`
 
-`# Title`, a blank line, then the paragraphs exactly as supplied, separated by blank lines. `*word*` marks emphasis. A paragraph may end in a list: put each item on its own line starting with `- `, directly under the paragraph with no blank line, and the app shows them as bullet points. Nothing else in the file: the open questions go in `journey.js`, not here, and subheadings in the supplied text become chapter titles.
+`# Title`, a blank line, then the paragraphs as supplied (with only the corrections from step 1), separated by blank lines. `*word*` marks emphasis. A paragraph may end in a list: put each item on its own line starting with `- `, directly under the paragraph with no blank line, and the app shows them as bullet points. Nothing else in the file: the open questions go in `journey.js`, not here, and subheadings in the supplied text become chapter titles.
 
 ## 3. `journeys/<slug>/journey.js`
 
@@ -36,7 +36,7 @@ Default export following the Taiwan schema: `slug`, `name` (short, for the switc
   - Include at least one cause-and-effect question and one word-in-context question. The last question asks for the main message of the whole text.
   - Wrong options are plausible but clearly wrong on rereading; no trick questions, no "all of the above".
   - `explanation` points back to what the text says, in one or two sentences.
-- **2 open questions:** Jeremy's two questions, word for word and in his order. You add `label` (`TEKSTBEGRIP & ANALYSE` or `WOORDENSCHAT`), `chapter` (the chapter to reread) and `model`: an example answer in simple sentences, taken from the text, that Alex can compare with.
+- **2 open questions:** Jeremy's two questions, word for word (apart from corrections from step 1) and in his order. You add `label` (`TEKSTBEGRIP & ANALYSE` or `WOORDENSCHAT`), `chapter` (the chapter to reread) and `model`: an example answer in simple sentences, taken from the text, that Alex can compare with.
 - Write the multiple-choice questions so they don't give away the answers to the open questions.
 - **Order is permanent once published.** Saved answers are stored by index, so never reorder, insert or remove questions of a journey Alex may have used.
 
@@ -72,4 +72,4 @@ Rules for every SVG:
    In the tone map, darker characters are darker areas; check that shapes sit where you drew them and nothing leaves a gap (for example, sky showing between layers). In the diff map, the moving parts should appear and the rest stay blank. Ask Jeremy to judge colours and feel.
 6. Add the journey to the "Journeys so far" table in `README.md` and the "Journeys so far" line in `AGENTS.md`.
 7. Commit on `main` with an English message. Don't wait for usage readings or other input before committing.
-8. In the final reply, repeat the link.
+8. In the final reply, repeat the link and give a short overview of every correction made in step 1 (what was changed and why), or say that none were needed.
