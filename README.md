@@ -40,6 +40,7 @@ There's no timer, no streaks and no pressure. Any chapter or question can be ope
 | 16 | De mythische oorsprong van Pokémon | The myths behind Ninetales, Gyarados, Froslass and Thundurus; the hero scene is a small keyboard game on desktop |
 | 17 | Een legende keert terug | Why Nintendo rebuilt Ocarina of Time for the Switch 2, what changed and what fans think; the hero scene is an ocarina melody game on desktop |
 | 18 | Anton de Kom: Strijder tegen onrecht | The life of Anton de Kom: writer of *Wij slaven van Suriname*, 'papa De Kom' in Paramaribo, exile and the Dutch resistance |
+| 19 | Aletta Jacobs: Pionier voor gelijke rechten | Aletta Jacobs: her letter to Thorbecke, the first female doctor in the Netherlands, her free clinic and shop-girl chairs, and the fight for women's suffrage |
 
 The original Grok Kowloon journey is archived: it stays available at `#/kowloon`, including its chapters, quiz and saved answers, but is hidden from the landing page and header switcher. The preferred version keeps its existing `#/kowloon-opus5-5-xhigh` URL. Display numbers can change; URL slugs and saved-answer keys stay unchanged.
 
