@@ -1,1 +1,5 @@
 .screenshots/
+# OpenSpec skills are installed locally per tool; only the openspec/ folder is shared.
+.agents/skills/openspec-*/
+.agents/skills/.openspec-target
+.claude/skills/openspec-*
