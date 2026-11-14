@@ -35,6 +35,12 @@ Default export following the Taiwan schema: `slug`, `name` (short, for the switc
   - Cover every chapter at least once and set `chapter` to where the answer is.
   - Include at least one cause-and-effect question and one word-in-context question. The last question asks for the main message of the whole text.
   - Wrong options are plausible but clearly wrong on rereading; no trick questions, no "all of the above".
+  - **Length must not give the answer away.** Alex learned to pick the longest option, because correct answers used to be the longest in 70% of questions. The usual cause is a correct answer that carries every detail and qualifier while the wrong ones stay bare. Write the options with this in mind from the first draft:
+    - Keep the correct option to its core: one fact or idea, in the shortest natural sentence. Leave the extra detail for the `explanation`.
+    - Give wrong options the same kind of concrete detail (a place, a number, a who or a why), preferably words or facts from the text used in the wrong way. Never pad with filler such as "echt", "heel erg" or "eigenlijk".
+    - Main-message questions need the most care: four full sentences of similar length, not one rich answer and three short jokes.
+    - Per journey, the correct option is the longest in 1 or 2 questions and the shortest in 1 or 2 (ties count; a question whose four options are exactly equally long is skipped), and in no question is it more than 25% and 8 characters longer than every wrong option. Too few counts as a cue too: if the answer is never the longest or shortest, a reader learns to skip those. `npm run check` enforces all of this.
+    - After adjusting lengths, reread every question: the correct option must still be the one the text supports, and every option must sound like something a person would write.
   - `explanation` points back to what the text says, in one or two sentences.
 - **2 open questions:** Jeremy's two questions, word for word (apart from corrections from step 1) and in his order. You add `label` (`TEKSTBEGRIP & ANALYSE` or `WOORDENSCHAT`), `chapter` (the chapter to reread) and `model`: an example answer in simple sentences, taken from the text, that Alex can compare with.
 - Write the multiple-choice questions so they don't give away the answers to the open questions.

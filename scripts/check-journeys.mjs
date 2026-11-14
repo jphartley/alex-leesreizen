@@ -66,6 +66,22 @@ for (const j of journeys) {
   });
   const perLetter = [0, 1, 2, 3].map(n => questions.filter(q => q.answer === n).length);
   if (Math.max(...perLetter) > 3) warn(at, `correct answers are bunched (A–D: ${perLetter.join('/')})`);
+  // Option length must not give the answer away: young readers learn to pick the longest option.
+  // Questions whose four options are exactly equally long give nothing away and are skipped.
+  if (questions.every(q => Array.isArray(q.options) && q.options.length === 4)) {
+    const sizes = questions.map(q => {
+      const lens = q.options.map(o => String(o).length), c = lens[q.answer], wrong = lens.filter((_, k) => k !== q.answer);
+      return { c, max: Math.max(...wrong), min: Math.min(...wrong) };
+    }).filter(s => s.min !== s.max || s.c !== s.max);
+    const longest = sizes.filter(s => s.c >= s.max).length, shortest = sizes.filter(s => s.c <= s.min).length;
+    // Both caps and floors: a correct answer that is never the longest or shortest is a cue too.
+    if (longest < 1 || longest > 2) fail(at, `correct answer is the longest option in ${longest} of ${questions.length} questions (needs 1–2)`);
+    if (shortest < 1 || shortest > 2) fail(at, `correct answer is the shortest option in ${shortest} of ${questions.length} questions (needs 1–2)`);
+    questions.forEach((q, i) => {
+      const c = q.options[q.answer].length, max = Math.max(...q.options.filter((_, k) => k !== q.answer).map(o => o.length));
+      if (c > max * 1.25 && c - max >= 8) fail(at, `question ${i + 1}: correct answer is clearly longer than every wrong option (${c} vs ${max} characters)`);
+    });
+  }
   const covered = new Set(questions.map(q => q.chapter));
   chapters.forEach((_, i) => { if (!covered.has(i)) warn(at, `no multiple-choice question about chapter ${i + 1}`); });
 

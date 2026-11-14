@@ -90,7 +90,7 @@ export default {
     {
       q: 'Wat was Kowloon Walled City volgens de tekst?',
       options: [
-        'Een filmdecor dat alleen in een game bestond.',
+        'Een filmdecor dat alleen in een computergame bestond.',
         'Een groot eiland ver van Hongkong.',
         'Een echt, piepklein stukje land midden in Hongkong.',
         'Een stadspark dat er altijd al was.',
@@ -104,7 +104,7 @@ export default {
       options: [
         'Een Chinees militair fort.',
         'Een Brits politiebureau.',
-        'Een grote noedelfabriek.',
+        'Een grote, lawaaiige noedelfabriek.',
         'Een sciencefictionfilm.',
       ],
       answer: 0,
@@ -126,7 +126,7 @@ export default {
     {
       q: 'Wat betekent ‘onbevoegde tandartsen’ hier?',
       options: [
-        'Tandartsen die alleen in het donker werkten.',
+        'Tandartsen die alleen \'s nachts in het donker werkten.',
         'Tandartsen zonder toestemming voor dat werk.',
         'Tandartsen uit een groot ziekenhuis.',
         'Tandartsen die noedels maakten.',
@@ -150,7 +150,7 @@ export default {
     {
       q: 'Wat bedoelt de tekst met ‘high tech, low life’?',
       options: [
-        'Geavanceerde technologie, maar gewone mensen in donkere, overvolle steden.',
+        'Moderne technologie, maar gewone mensen in donkere steden.',
         'Een toekomst waarin niemand nog technologie gebruikt.',
         'Alleen rijke mensen in hoge, brandschone torens.',
         'Een leeg park met één oude spelcomputer in het gras.',
@@ -165,7 +165,7 @@ export default {
         'Kowloon Walled City staat nog steeds midden in Hongkong.',
         'Cyberpunk gaat alleen over snelle auto’s.',
         'In de stad golden juist extra veel regels.',
-        'De chaotische stad is afgebroken, maar in cyberpunk-werelden leeft het doolhof voort.',
+        'De stad is afgebroken, maar leeft voort in cyberpunk.',
       ],
       answer: 3,
       chapter: 4,
