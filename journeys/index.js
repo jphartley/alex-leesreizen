@@ -21,7 +21,8 @@ import antonDeKom from './anton-de-kom/journey.js';
 import alettaJacobs from './aletta-jacobs/journey.js';
 import zelda3d from './zelda-3d/journey.js';
 import nozems from './nozems/journey.js';
+import zeldaMythen from './zelda-mythen/journey.js';
 
-export const journeys = [taiwan, smakenVerleden, hongkong, tempels, pizza, a350, website, kowloon, kowloonOpus, shooters, manga, ketiKoti, mangawereld, halloween, godenwereld, pokemonKnuffels, pokemonMythes, ocarina, antonDeKom, alettaJacobs, zelda3d, nozems];
+export const journeys = [taiwan, smakenVerleden, hongkong, tempels, pizza, a350, website, kowloon, kowloonOpus, shooters, manga, ketiKoti, mangawereld, halloween, godenwereld, pokemonKnuffels, pokemonMythes, ocarina, antonDeKom, alettaJacobs, zelda3d, nozems, zeldaMythen];
 // Only active journeys appear on the landing page and in the header switcher.
 export const visibleJourneys = journeys.filter(j => !j.archived);
