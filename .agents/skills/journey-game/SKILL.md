@@ -29,7 +29,7 @@ Some journeys turn their hero scene into a small game, playable on the desktop j
 
 ## 2. `art.js`
 
-- Take figures from `../../art-kit.js` where they fit: `adventurer({ sword: true })` gives the `.swing` arm (turn it around `SHOULDERS[1]`), `adventurer({ hands })` arms that `armPath()` can bend, plus `princess`, `fairy`, `desertKing` (`.gan-arm` turns around `KING_SHOULDER`), `boar`, `swordUp`/`swordDown` and `burst()`. Classes starting with `c-` let you recolour them.
+- Design the game's look from the story first (see `docs/kit.md`); take figures from `../../art-kit.js` only where they fit: `adventurer({ sword: true })` gives the `.swing` arm (turn it around `SHOULDERS[1]`), `adventurer({ hands })` arms that `armPath()` can bend, plus `princess`, `fairy`, `desertKing` (`.gan-arm` turns around `KING_SHOULDER`), `boar`, `swordUp`/`swordDown` and `burst()`. Classes starting with `c-` let you recolour them.
 - Draw every moving actor on its own origin (feet or centre) inside a `<g class="…">` without other transforms, so `motion.js` can set `transform` each tick. Export the positions `motion.js` needs (spots, pivots, scale) as constants.
 - Put reward elements (arch, burst, shards) in the SVG from the start with `opacity="0"`. If GSAP will move an element that has a `transform` attribute, wrap it in a `<g>` first.
 - End the SVG with a veil if you need a fade, then `${hintBar('…start hint…')}` from `../../game.js` (`import { hintBar } from '../../game.js';`). Keep the hint under about 70 characters. Move the bar with `{ x, y, width }` if the scene needs it.

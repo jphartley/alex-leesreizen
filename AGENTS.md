@@ -35,6 +35,7 @@ This is a personalised Dutch reading-comprehension app (begrijpend lezen) for Al
 - `scripts/check-browser.mjs` (`npm run check:browser`), `scripts/screenshot.mjs` (`npm run screenshot`) and `scripts/play.mjs` (`npm run play`): browser checks, screenshots as text, and game playtests; shared code in `scripts/lib/`.
 - `.agents/skills/new-journey/SKILL.md`: the shared checklist for adding a journey. Use it whenever Jeremy supplies a new text.
 - `.agents/skills/journey-game/SKILL.md`: the opt-in checklist for turning a hero scene into a game. Use it only when Jeremy asks for a game.
+- `.agents/skills/kit-review/SKILL.md` (`/kit-review`): the review of the shared kit, due every three journeys; `docs/kit.md` holds the rules, the review record and the log.
 - `server.mjs`: local static server; `scripts/serve.mjs` (`npm run serve`) starts it in the background if it isn't running. `README.md`: user-facing setup and feature overview.
 - `COSTS.md`: optional log of what a journey cost to generate, only when Jeremy volunteers usage readings. Never ask for them.
 
@@ -55,6 +56,7 @@ Answers and settings are stored only in this browser’s `localStorage`, under `
 - Multiple-choice options must not give the answer away by their length (see the new-journey skill). `npm run check` enforces this for every journey, including edits to existing questions.
 - Journey copy is plain text with optional `*emphasis*`; `app.js` escapes it through `inline()`. Escape source text, glossary definitions, and written answers before inserting them into HTML.
 - Every SVG `id` starts with the journey slug, because the landing page shows several journeys at once.
+- The shared kit (`art-kit.js`, `game.js`) is used only where a piece fits the story; scenes are designed from the text first, and the kit is reviewed every three journeys with `/kit-review`; once a review is due, every new journey ends with a reminder until it is done. The rules are in `docs/kit.md`.
 - Keep the visual style consistent across journeys: warm paper, muted greens, serif reading text, flat and gentle illustrations. Animation stays subtle.
 - “Rustig lezen” hides illustrations, stops animations, gives the reading text more space, and shows an explanatory notice. The separate letter-size button enlarges text.
 - Preserve keyboard access, visible focus, responsive layouts (down to 360px), and support for `prefers-reduced-motion`. CSS rules do not stop GSAP: `motion.js` pauses it in quiet mode and skips it under reduced motion.

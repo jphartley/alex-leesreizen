@@ -1,0 +1,4 @@
+interface:
+  display_name: "kit-review"
+  short_description: "Review the shared art and game kit against recent journeys"
+  default_prompt: "Use $kit-review to review art-kit.js and game.js against the journeys added since the last review."

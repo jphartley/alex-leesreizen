@@ -55,7 +55,7 @@ Original inline SVG, drawn in code like Taiwan's. Export:
 - `completion()`: a closing illustration (720×650).
 - `card()`: the landing-page card; usually `hero` with another id. It is never animated.
 
-**Shared helpers:** import scenery pieces from `../../art-kit.js` instead of copying them from another journey: `C` (the house palette), `backdrop`, `label`, `sparkle`, `heart`, `tuft`, `flower`, `cloud`, `treeline`, and figures (`adventurer`, `princess`, `fairy`, `desertKing`, `boar`, swords) when a scene needs people. Read the comments at the top of each helper, not whole journeys.
+**Shared kit, fit first:** design each illustration from the text first. Only then use pieces from `../../art-kit.js` where they are exactly what you would have drawn anyway: `C` (the house palette), scenery (`backdrop`, `label`, `sparkle`, `heart`, `tuft`, `flower`, `cloud`, `treeline`) and figures (`adventurer`, `princess`, `fairy`, `desertKing`, `boar`, swords). Never shape a scene around what the kit offers, and draw new things freely; most of a journey's art should be its own. The rules are in `docs/kit.md`.
 
 Rules for every SVG:
 
@@ -79,5 +79,7 @@ Rules for every SVG:
    - Each chapter: `npm run screenshot -- '#/<slug>/chapter-<i>' --selector=#chapter-art --text=56`
    In the tone map, darker characters are darker areas; check that shapes sit where you drew them and nothing leaves a gap (for example, sky showing between layers). In the diff map, the moving parts should appear and the rest stay blank. Ask Jeremy to judge colours and feel.
 6. Add the journey to the "Journeys so far" table in `README.md` and the "Journeys so far" line in `AGENTS.md`.
-7. Commit on `main` with an English message. Don't wait for usage readings or other input before committing.
-8. In the final reply, repeat the link and give a short overview of every correction made in step 1 (what was changed and why), or say that none were needed.
+7. Add one line for this journey to the log in `docs/kit.md` (kit pieces used, anything shareable you drew yourself, friction), then commit on `main` with an English message. Don't wait for usage readings or other input before committing.
+8. Read **Next review due** in `docs/kit.md`. If this journey's number is equal to or higher than it, end the final reply with this reminder, every time until a review has been done (filling in the numbers):
+   > **Kit review due.** The last review was after journey <last>; <n> journeys have been added since. When you have time, send `/kit-review`. Skipping is fine: I'll remind you again after the next journey.
+9. In the final reply, repeat the link and give a short overview of every correction made in step 1 (what was changed and why), or say that none were needed.
