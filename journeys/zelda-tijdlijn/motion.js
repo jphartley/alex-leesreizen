@@ -8,10 +8,11 @@
 // hits him the crystal cracks; after three hits he turns into Ganon, shrinks and runs off, the crystal
 // shatters and Link and Zelda marry under a flower arch. In the games they never marry, and the hint says
 // so. Then "centuries later" evil returns, with a new hero and princess in new colours (reincarnation).
-// A miss only restarts the rally: there is no score, timer or way to lose. Sound uses Web Audio, starts
-// only after a key press or click and stops with the scene. Nothing is stored.
+// A miss only restarts the rally: there is no score, timer or way to lose. Keys, focus, the hint bar and
+// sound come from the shared /game.js. Nothing is stored.
 //
 // Actors are plain objects tweened by GSAP and drawn each tick by setting attributes.
+import { setupGame } from '../../game.js';
 import { S, HOME, WED, GAN, G, T, CRY, Z_IN, Z_WED, BOAR_Y, SHOULDER, GAN_SHOULDER, TUNICS, DRESSES } from './art.js';
 
 const ARC = 50, MISS_P = 1.16;
@@ -61,17 +62,15 @@ export function animate({ gsap, q, random, alive, svg, container }) {
   const state = { mode: 'idle', focused: false, stage: 0, era: 0, cool: 0, run: null };
   let ballShown = false, throwing = null, swingTween = null, demo = null, party = [];
 
-  // The hint line under the scene; only the desktop game uses it.
-  const desktop = container?.classList.contains('hero-art') && matchMedia('(hover: hover) and (pointer: fine) and (min-width: 741px)').matches;
-  const [hint] = q('.game-hint'), [hintText] = q('.hint-text');
-  let laterHint = null;
-  const say = (text, then) => {
-    if (!desktop || !hintText) return;
-    hintText.textContent = text;
-    gsap.fromTo(hint, { opacity: .5 }, { opacity: 1, duration: .35, overwrite: 'auto' });
-    laterHint?.kill();
-    laterHint = then ? gsap.delayedCall(1.8, () => alive() && state.focused && (state.mode === 'play' || state.mode === 'pause') && say(then)) : null;
-  };
+  // Keys, focus, hint bar, sound and clean-up come from the shared game module (no-ops off desktop).
+  const game = setupGame({
+    svg, container, gsap, q, alive, start: HINTS.start,
+    help: 'Spel: klik op het veld of ga ernaartoe met Tab. Ganondorf gooit een lichtbal naar Link. Druk op de spatiebalk als de bal in de stippelcirkel voor Links zwaard is, dan kaatst Link hem terug. Raak Ganondorf drie keer om Zelda te bevrijden. Stop met Escape.',
+    onKey: (key, down) => down && attempt(),
+    onStart: () => onFocus(), onStop: () => onBlur(),
+    when: () => state.mode === 'play' || state.mode === 'pause',
+  });
+  const { say, tone, tune, melody } = game;
 
   const render = time => {
     heroEl.setAttribute('transform', `translate(${link.x.toFixed(1)} ${(link.y + link.hop).toFixed(1)}) scale(${(S * link.face).toFixed(3)} ${S})`);
@@ -99,27 +98,13 @@ export function animate({ gsap, q, random, alive, svg, container }) {
       else if (ball.dir > 0 && ball.p >= MISS_P) miss();
       else if (ball.dir < 0 && ball.p <= 0) atGanon();
     }
+    if (state.mode === 'play') {
+      const b = ballPos(ball.p);
+      game.cue(ball.on && ball.dir > 0 && Math.hypot(b.x - T.x, b.y - T.y) <= ROUNDS[state.stage].tol / 2);
+    }
     render(time);
   };
   gsap.ticker.add(tick);
-
-  // Sound: short, soft tones (silent until the game wakes the audio).
-  let audio = null;
-  const wake = () => {
-    try { audio ??= new (window.AudioContext || window.webkitAudioContext)(); if (audio.state === 'suspended') audio.resume().catch(() => {}); } catch { audio = null; }
-  };
-  const tone = (freq, length = .18, volume = .07, type = 'triangle', delay = 0) => {
-    if (!audio || audio.state === 'closed' || !alive()) return;
-    const t = audio.currentTime + delay, out = audio.createGain(), osc = audio.createOscillator();
-    osc.type = type; osc.frequency.value = freq;
-    osc.connect(out).connect(audio.destination);
-    out.gain.setValueAtTime(0, t);
-    out.gain.linearRampToValueAtTime(volume, t + .02);
-    out.gain.setTargetAtTime(0, t + length, .05);
-    osc.start(t); osc.stop(t + length + .4);
-  };
-  const tune = (notes, gap = .13, length = .2) => notes.forEach((f, k) => tone(f, k === notes.length - 1 ? length * 2 : length, .07, 'sine', k * gap));
-  const melody = (notes, beat = .42) => { let t = 0; notes.forEach(([f, b]) => { tone(f, b * beat * .85, .07, 'sine', t); tone(f / 2, b * beat * .85, .03, 'triangle', t); t += b * beat; }); };
 
   const pop = (x, y, size = 1) => {
     popEl.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)})`);
@@ -326,21 +311,12 @@ export function animate({ gsap, q, random, alive, svg, container }) {
   // The ambient demo: a throw and a return now and then.
   const scheduleDemo = (wait = random(6, 10)) => { demo?.kill(); demo = gsap.delayedCall(wait, () => alive() && state.mode === 'idle' && !state.focused && throwBall(false)); };
   scheduleDemo(random(2, 3));
-  if (!desktop) return () => gsap.ticker.remove(tick);
-
-  // The game.
-  gsap.to(hint, { opacity: 1, duration: .6, delay: 1.2 });
-
-  const label = svg.getAttribute('aria-label');
-  svg.setAttribute('tabindex', '0');
-  svg.setAttribute('role', 'application');
-  svg.setAttribute('aria-label', `${label}. Spel: klik op het veld of ga ernaartoe met Tab. Ganondorf gooit een lichtbal naar Link. Druk op de spatiebalk als de bal in de stippelcirkel voor Links zwaard is, dan kaatst Link hem terug. Raak Ganondorf drie keer om Zelda te bevrijden. Stop met Escape.`);
+  if (!game.active) return () => gsap.ticker.remove(tick);
 
   // Leaving mid-game: the ball fades, the crystal heals and the ambient scene returns.
   const idle = () => {
     state.run?.kill();
     throwing?.kill();
-    laterHint?.kill();
     Object.assign(state, { mode: 'idle', stage: 0 });
     ball.on = false;
     gsap.to(ringG, { opacity: 0, duration: .3 });
@@ -351,14 +327,6 @@ export function animate({ gsap, q, random, alive, svg, container }) {
     scheduleDemo();
   };
 
-  const onKey = e => {
-    if (e.key === 'Escape') { svg.blur(); return; }
-    if (e.key !== ' ' && e.key !== 'Spacebar' && e.key !== 'Enter') return;
-    e.preventDefault();
-    if (e.repeat) return;
-    wake();
-    attempt();
-  };
   const onFocus = () => {
     state.focused = true;
     if (state.mode !== 'idle' && state.mode !== 'demo') return;
@@ -377,23 +345,9 @@ export function animate({ gsap, q, random, alive, svg, container }) {
     if (state.mode === 'play' || state.mode === 'pause') { idle(); return; }
     if (state.mode === 'idle' || state.mode === 'demo') say(HINTS.start);
   };
-  const onPointer = () => { svg.focus({ preventScroll: true }); wake(); };
-  svg.addEventListener('keydown', onKey);
-  svg.addEventListener('focus', onFocus);
-  svg.addEventListener('blur', onBlur);
-  svg.addEventListener('pointerdown', onPointer);
-
   return () => {
     gsap.ticker.remove(tick);
-    svg.removeEventListener('keydown', onKey);
-    svg.removeEventListener('focus', onFocus);
-    svg.removeEventListener('blur', onBlur);
-    svg.removeEventListener('pointerdown', onPointer);
-    svg.removeAttribute('tabindex');
-    svg.setAttribute('role', 'img');
-    svg.setAttribute('aria-label', label);
+    game.cleanup();
     recolor(0);
-    audio?.close().catch(() => {});
-    audio = null;
   };
 }

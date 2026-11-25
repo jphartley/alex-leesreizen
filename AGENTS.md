@@ -26,12 +26,14 @@ This is a personalised Dutch reading-comprehension app (begrijpend lezen) for Al
 - `app.js`: journey-agnostic views (landing, journey home, chapters, quiz, completion, full reading), router, glossary, quiz logic, and switcher.
 - `store.js`: saved data (load, migration from v1, save).
 - `motion.js`: shared GSAP runtime; each journey supplies its own choreography. `animate(ctx)` receives `svg`, `container`, `gsap`, `q`, `random` and `alive`, and may return a clean-up function (used by `pokemon-mythes`, `ocarina`, `zelda-3d`, `zelda-mythen` and `zelda-tijdlijn` for their keyboard games).
+- `game.js`: shared plumbing for hero-scene keyboard games (desktop check, focus and keys, hint bar, Web Audio, clean-up) via `setupGame()`, plus `hintBar()` for `art.js`. Used by `zelda-tijdlijn`; the older games predate it.
 - `styles.css`: responsive layouts, colours, typography, animations (including the shared `.m-*` motion classes), and reading modes.
 - `journeys/index.js`: all routable journeys plus the active journeys in menu order.
 - `journeys/<slug>/`: `text.md` (title and paragraphs; lines starting with `- ` become bullet points), `journey.js` (all copy, chapters, glossary, questions), `art.js` (SVG illustrations), `motion.js` (hero animation).
 - `scripts/check-journeys.mjs` (`npm run check`): static validator for journeys and the storage migration.
-- `scripts/check-browser.mjs` (`npm run check:browser`) and `scripts/screenshot.mjs` (`npm run screenshot`): browser checks and screenshots as text; shared code in `scripts/lib/`.
+- `scripts/check-browser.mjs` (`npm run check:browser`), `scripts/screenshot.mjs` (`npm run screenshot`) and `scripts/play.mjs` (`npm run play`): browser checks, screenshots as text, and game playtests; shared code in `scripts/lib/`.
 - `.agents/skills/new-journey/SKILL.md`: the shared checklist for adding a journey. Use it whenever Jeremy supplies a new text.
+- `.agents/skills/journey-game/SKILL.md`: the opt-in checklist for turning a hero scene into a game. Use it only when Jeremy asks for a game.
 - `server.mjs`: local static server; `scripts/serve.mjs` (`npm run serve`) starts it in the background if it isn't running. `README.md`: user-facing setup and feature overview.
 - `COSTS.md`: optional log of what a journey cost to generate, only when Jeremy volunteers usage readings. Never ask for them.
 
@@ -64,6 +66,7 @@ For JavaScript changes, run `node --check` on the changed files, `npm run check`
 
 - `npm run check:browser [-- <slug>...]` runs the full end-to-end check for every journey (or the ones named), driven by the journey data. It starts its own server and a headless Chrome with a throwaway profile, and prints only failures plus a summary. It can't tell whether a quiz answer key is factually right; that needs a human read.
 - `npm run screenshot -- '<hash>' [--selector=.hero-art] [--at=3000,5000] [--text[=cols]] [--diff] [--mobile] [--reduced-motion]` saves PNGs to `.screenshots/` (gitignored). The Read tool may return nothing for images in this environment, so `--text` prints a tone map (layout) and `--diff` a change map between frames (motion). Ask Jeremy to judge colour and feel.
+- `npm run play -- <slug> [--until=<hint>] [--miss=1]` plays a hero-scene game built on `game.js`: it presses keys on the game's cue, logs every hint with a timestamp, screenshots each new hint and checks Escape. Games from before `game.js` raise no cue, so for those only the log and checks run.
 - For a one-off check, write a short script on top of `scripts/lib/browser.mjs` (`startServer`, `launch`, `page.eval/go/reload/screenshot/viewport/reducedMotion`). Seed `localStorage` and then `page.reload()`: a hash change alone doesn't reload the page. Chrome is found automatically on macOS and Linux, or set `CHROME=/path`.
 - Playwright isn't installed and the npm registry may be unreachable, so don't rely on installing packages. If a browser library is ever needed, download a single file from cdn.jsdelivr.net, as was done for GSAP.
 

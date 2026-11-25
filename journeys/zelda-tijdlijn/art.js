@@ -6,6 +6,8 @@
 // between G (Ganondorf's raised hand) and T (in front of the hero's sword), cracks and shatters the
 // .crystal, moves .zelda and .boar, and shows the wedding .arch. Classes starting with c- are recoloured
 // for each new hero and princess. Every id is prefixed with the journey slug so journeys can share a page.
+import { hintBar } from '../../game.js';
+
 const slug = 'zelda-tijdlijn';
 
 const C = { ink: '#3b342e', cream: '#f7f1df', paper: '#fbf6e6', green: '#284f3d', sage: '#517c67', olive: '#9cac66', moss: '#6f9463', wood: '#b8916b', woodDark: '#8c6a4c', rust: '#b76e55', yellow: '#e8c65a', gold: '#c9a24a', skin: '#e3b9a0', hair: '#6b4a32', stone: '#a9ab9a', stoneDark: '#8e9182', glow: '#fff8df', purple: '#6a5872', purpleDark: '#4f4157', gerudo: '#a9805f', ganHair: '#b5523b', cape: '#4b4038', armor: '#6e6257', rose: '#c98f9d', blond: '#d9b46a', pink: '#e3b0b8' };
@@ -174,8 +176,7 @@ function field(id) {
   <g class="pop" opacity="0"><g class="pop-rays">${Array.from({ length: 10 }, (_, i) => `<path transform="rotate(${i * 36})" d="M-3 -14L0 -40L3 -14Z" fill="${C.glow}"/>`).join('')}<circle r="14" fill="${C.glow}" opacity=".8"/></g></g>
   ${tuft(60, 704)}${tuft(104, 728)}${tuft(650, 700)}${tuft(608, 730)}${flower(470, 706)}${flower(500, 690, '#f2d79a')}${flower(40, 670)}
   <rect class="veil" width="720" height="760" fill="#2f3b33" opacity="0"/>
-  <g class="game-hint" opacity="0"><rect x="96" y="662" width="528" height="34" rx="17" fill="#f9f7e5" opacity=".94"/>
-  <text class="hint-text" x="360" y="684" text-anchor="middle" font-family="sans-serif" font-size="12.5" font-weight="700" fill="${C.green}">Klik op Hyrule en help Link om Zelda te bevrijden</text></g>
+  ${hintBar('Klik op Hyrule en help Link om Zelda te bevrijden')}
 </svg>`;
 }
 

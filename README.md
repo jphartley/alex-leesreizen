@@ -92,6 +92,7 @@ Plain HTML, CSS and browser JavaScript modules: no framework, no build step, no 
 index.html, app.js, styles.css   page shell, views and router, styles
 store.js                         saved answers and settings (localStorage)
 motion.js                        shared animation runtime
+game.js                          shared plumbing for hero-scene keyboard games
 server.mjs                       small local static server
 journeys/index.js                all routable journeys and the visible menu list
 journeys/<slug>/

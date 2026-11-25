@@ -1,0 +1,4 @@
+interface:
+  display_name: "journey-game"
+  short_description: "Turn a journey's hero scene into a small desktop keyboard game"
+  default_prompt: "Use $journey-game to add a hero-scene game to the journey Jeremy names."

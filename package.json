@@ -10,7 +10,8 @@
     "serve": "node scripts/serve.mjs",
     "check": "node scripts/check-journeys.mjs",
     "check:browser": "node scripts/check-browser.mjs",
-    "screenshot": "node scripts/screenshot.mjs"
+    "screenshot": "node scripts/screenshot.mjs",
+    "play": "node scripts/play.mjs"
   },
   "engines": { "node": ">=18" }
 }
