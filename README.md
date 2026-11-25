@@ -44,6 +44,7 @@ There's no timer, no streaks and no pressure. Any chapter or question can be ope
 | 20 | De 3D-revolutie van Zelda: Ocarina of Time | Why Ocarina of Time (1998) was revolutionary: its two predecessors, Z-targeting, the context-sensitive A button and the day-night cycle; the hero scene is a Z-targeting game on desktop |
 | 21 | Vetkuiven en leren jacks: De opkomst van de nozems | The nozems, the first real Dutch youth culture in the 1950s: their own money, American films and rock 'n' roll, quiffs and petticoats, and mopeds on the Nieuwendijk |
 | 22 | De mythische wortels van The Legend of Zelda | The old stories behind Zelda: the Triforce, King Arthur's sword in the stone, Shinto nature spirits and the Hojo crest, the Celtic goddess Epona and Peter Pan; the hero scene is a sword-in-the-stone timing game on desktop |
+| 23 | De complexe tijdlijn van The Legend of Zelda | How all Zelda games form one timeline: Skyward Sword and the eternal curse, Ganondorf versus Ganon, the three-way split after Ocarina of Time, and why Link and Zelda never marry; the hero scene is a rally game on desktop in which Link frees Zelda and finally marries her |
 
 The original Grok Kowloon journey is archived: it stays available at `#/kowloon`, including its chapters, quiz and saved answers, but is hidden from the landing page and header switcher. The preferred version keeps its existing `#/kowloon-opus5-5-xhigh` URL. Display numbers can change; URL slugs and saved-answer keys stay unchanged.
 
