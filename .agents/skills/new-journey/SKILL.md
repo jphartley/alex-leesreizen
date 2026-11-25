@@ -55,6 +55,8 @@ Original inline SVG, drawn in code like Taiwan's. Export:
 - `completion()`: a closing illustration (720×650).
 - `card()`: the landing-page card; usually `hero` with another id. It is never animated.
 
+**Shared helpers:** import scenery pieces from `../../art-kit.js` instead of copying them from another journey: `C` (the house palette), `backdrop`, `label`, `sparkle`, `heart`, `tuft`, `flower`, `cloud`, `treeline`, and figures (`adventurer`, `princess`, `fairy`, `desertKing`, `boar`, swords) when a scene needs people. Read the comments at the top of each helper, not whole journeys.
+
 Rules for every SVG:
 
 - Every `id` starts with `<slug>-` (e.g. `` `${slug}-${id}-sky` ``), because several journeys can share a page.

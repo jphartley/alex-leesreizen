@@ -93,6 +93,7 @@ index.html, app.js, styles.css   page shell, views and router, styles
 store.js                         saved answers and settings (localStorage)
 motion.js                        shared animation runtime
 game.js                          shared plumbing for hero-scene keyboard games
+art-kit.js                       shared SVG helpers and figures for journey art
 server.mjs                       small local static server
 journeys/index.js                all routable journeys and the visible menu list
 journeys/<slug>/

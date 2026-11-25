@@ -5,7 +5,7 @@ import path from 'node:path';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.md': 'text/plain; charset=utf-8', '.svg': 'image/svg+xml' };
-const allowed = new Set(['index.html', 'styles.css', 'app.js', 'motion.js', 'game.js', 'store.js', 'vendor/gsap.min.js', 'vendor/MotionPathPlugin.min.js']);
+const allowed = new Set(['index.html', 'styles.css', 'app.js', 'motion.js', 'game.js', 'art-kit.js', 'store.js', 'vendor/gsap.min.js', 'vendor/MotionPathPlugin.min.js']);
 // Journey files follow a fixed layout, so new journeys need no server change. Slugs cannot contain dots or slashes.
 const journeyFile = /^journeys\/(index\.js|[a-z0-9-]+\/(text\.md|journey\.js|art\.js|motion\.js))$/;
 const server = http.createServer(async (req, res) => {

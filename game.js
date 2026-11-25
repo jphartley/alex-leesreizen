@@ -113,3 +113,22 @@ export function setupGame({ svg, container, gsap, q, alive, help, start, keys = 
   };
   return { active: true, focused: () => focused, say, cue, tone, tune, melody, cleanup };
 }
+
+// ---- Motion helpers (usable with or without setupGame) ----------------------------------------------
+
+// Walks an actor object ({ x, y, face, hop }, drawn by your ticker) to x (and y), with a small bounce
+// per step. face defaults to the walking direction. Returns the GSAP timeline.
+export function walkTo(gsap, actor, x, { y = actor.y, face = Math.sign(x - actor.x) || actor.face, speed = 110 } = {}) {
+  const duration = Math.max(.3, Math.hypot(x - actor.x, (y ?? 0) - (actor.y ?? 0)) / speed);
+  const tl = gsap.timeline().set(actor, { face }).to(actor, { x, ...(y === undefined ? {} : { y }), duration, ease: 'sine.inOut' });
+  return tl.to(actor, { hop: -3, duration: .16, ease: 'sine.out', yoyo: true, repeat: Math.max(1, Math.round(duration / .16) - 1) }, 0).set(actor, { hop: 0 });
+}
+
+// Flashes a burst() from art-kit.js at (x, y).
+export function burstAt(gsap, el, x, y, size = 1) {
+  if (!el) return;
+  const rays = el.querySelector('.burst-rays');
+  el.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)})`);
+  gsap.fromTo(el, { opacity: 1 }, { opacity: 0, duration: .6, ease: 'power1.in', overwrite: 'auto' });
+  if (rays) gsap.fromTo(rays, { scale: .4 * size, rotation: 0 }, { scale: 1.3 * size, rotation: 25, duration: .6, ease: 'power2.out', transformOrigin: '50% 50%', overwrite: 'auto' });
+}

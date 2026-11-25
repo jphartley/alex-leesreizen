@@ -12,7 +12,7 @@
 // sound come from the shared /game.js. Nothing is stored.
 //
 // Actors are plain objects tweened by GSAP and drawn each tick by setting attributes.
-import { setupGame } from '../../game.js';
+import { setupGame, walkTo as walk, burstAt } from '../../game.js';
 import { S, HOME, WED, GAN, G, T, CRY, Z_IN, Z_WED, BOAR_Y, SHOULDER, GAN_SHOULDER, TUNICS, DRESSES } from './art.js';
 
 const ARC = 50, MISS_P = 1.16;
@@ -48,7 +48,7 @@ export function animate({ gsap, q, random, alive, svg, container }) {
 
   const [heroEl] = q('.hero'), [swingEl] = q('.swing'), [ganEl] = q('.gan'), [ganArm] = q('.gan-arm'), [orbEl] = q('.orb');
   const [zEl] = q('.zelda'), [cryEl] = q('.crystal'), [cryBody] = q('.crystal-body'), [cryGlow] = q('.crystal-glow'), [boarEl] = q('.boar');
-  const [ballEl] = q('.ball'), [ringG] = q('.ring-g'), [ringFlash] = q('.ring-flash'), [popEl] = q('.pop'), [popRays] = q('.pop-rays');
+  const [ballEl] = q('.ball'), [ringG] = q('.ring-g'), [ringFlash] = q('.ring-flash'), [burstEl] = q('.burst');
   const [archEl] = q('.arch'), [petalsEl] = q('.petals'), [veil] = q('.veil');
   const cracks = q('.crack'), shards = q('.shard'), bells = q('.bell'), petals = q('.petal'), heartsUp = q('.heart-up');
   if (!heroEl || !ganEl || !ballEl) return;
@@ -106,23 +106,12 @@ export function animate({ gsap, q, random, alive, svg, container }) {
   };
   gsap.ticker.add(tick);
 
-  const pop = (x, y, size = 1) => {
-    popEl.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)})`);
-    gsap.fromTo(popEl, { opacity: 1 }, { opacity: 0, duration: .6, ease: 'power1.in', overwrite: 'auto' });
-    gsap.fromTo(popRays, { scale: .4 * size, rotation: 0 }, { scale: 1.3 * size, rotation: 25, duration: .6, ease: 'power2.out', transformOrigin: '50% 50%', overwrite: 'auto' });
-  };
+  const pop = (x, y, size = 1) => burstAt(gsap, burstEl, x, y, size);
   const swingNow = () => {
     swingTween?.kill();
     swingTween = gsap.timeline().to(link, { swing: -30, duration: .07, ease: 'power1.out' }).to(link, { swing: 70, duration: .1, ease: 'power2.in' }).to(link, { swing: 0, duration: .35, ease: 'power2.out' });
   };
-  const walkTo = (x, face) => {
-    const d = Math.abs(x - link.x), duration = Math.max(.3, d / 110);
-    return gsap.timeline()
-      .set(link, { face })
-      .to(link, { x, duration, ease: 'sine.inOut' })
-      .to(link, { hop: -3, duration: .16, ease: 'sine.out', yoyo: true, repeat: Math.max(1, Math.round(duration / .16) - 1) }, 0)
-      .set(link, { hop: 0 });
-  };
+  const walkTo = (x, face) => walk(gsap, link, x, { face });
   const recolor = k => {
     const [t, td] = TUNICS[k], [d, dd] = DRESSES[k];
     q('.c-tunic').forEach(e => e.setAttribute('fill', t));

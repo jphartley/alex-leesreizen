@@ -26,7 +26,8 @@ This is a personalised Dutch reading-comprehension app (begrijpend lezen) for Al
 - `app.js`: journey-agnostic views (landing, journey home, chapters, quiz, completion, full reading), router, glossary, quiz logic, and switcher.
 - `store.js`: saved data (load, migration from v1, save).
 - `motion.js`: shared GSAP runtime; each journey supplies its own choreography. `animate(ctx)` receives `svg`, `container`, `gsap`, `q`, `random` and `alive`, and may return a clean-up function (used by `pokemon-mythes`, `ocarina`, `zelda-3d`, `zelda-mythen` and `zelda-tijdlijn` for their keyboard games).
-- `game.js`: shared plumbing for hero-scene keyboard games (desktop check, focus and keys, hint bar, Web Audio, clean-up) via `setupGame()`, plus `hintBar()` for `art.js`. Used by `zelda-tijdlijn`; the older games predate it.
+- `game.js`: shared plumbing for hero-scene keyboard games (desktop check, focus and keys, hint bar, Web Audio, clean-up) via `setupGame()`, `hintBar()` for `art.js`, and the motion helpers `walkTo()` and `burstAt()`. Used by `zelda-tijdlijn`; the older games predate it.
+- `art-kit.js`: shared SVG helpers for `art.js` files: the house palette `C`, scenery (`backdrop`, `label`, `sparkle`, `heart`, `tuft`, `flower`, `cloud`, `treeline`) and original figures (`adventurer`, `princess`, `fairy`, `desertKing`, `boar`, swords, `burst`). Used by `zelda-tijdlijn`; older journeys keep their own copies.
 - `styles.css`: responsive layouts, colours, typography, animations (including the shared `.m-*` motion classes), and reading modes.
 - `journeys/index.js`: all routable journeys plus the active journeys in menu order.
 - `journeys/<slug>/`: `text.md` (title and paragraphs; lines starting with `- ` become bullet points), `journey.js` (all copy, chapters, glossary, questions), `art.js` (SVG illustrations), `motion.js` (hero animation).

@@ -29,6 +29,7 @@ Some journeys turn their hero scene into a small game, playable on the desktop j
 
 ## 2. `art.js`
 
+- Take figures from `../../art-kit.js` where they fit: `adventurer({ sword: true })` gives the `.swing` arm (turn it around `SHOULDERS[1]`), `adventurer({ hands })` arms that `armPath()` can bend, plus `princess`, `fairy`, `desertKing` (`.gan-arm` turns around `KING_SHOULDER`), `boar`, `swordUp`/`swordDown` and `burst()`. Classes starting with `c-` let you recolour them.
 - Draw every moving actor on its own origin (feet or centre) inside a `<g class="…">` without other transforms, so `motion.js` can set `transform` each tick. Export the positions `motion.js` needs (spots, pivots, scale) as constants.
 - Put reward elements (arch, burst, shards) in the SVG from the start with `opacity="0"`. If GSAP will move an element that has a `transform` attribute, wrap it in a `<g>` first.
 - End the SVG with a veil if you need a fade, then `${hintBar('…start hint…')}` from `../../game.js` (`import { hintBar } from '../../game.js';`). Keep the hint under about 70 characters. Move the bar with `{ x, y, width }` if the scene needs it.
@@ -63,6 +64,7 @@ export function animate({ gsap, q, random, alive, svg, container }) {
 
 `setupGame()` handles the desktop check, focus, blur, Escape, clicks, keys (only while the SVG has focus), the hint bar, the aria-label, Web Audio (silent until a key press or click) and its own clean-up. Don't rebuild any of that.
 
+- **Helpers from `game.js`:** `walkTo(gsap, actor, x, { face })` walks an actor object with a little bounce; `burstAt(gsap, burstEl, x, y, size)` flashes a `burst()`.
 - **Actors as plain objects.** Keep each actor's state in a plain object (`{ x, y, face, hop }`), tween those with GSAP, and draw them in one `gsap.ticker` callback by setting attributes. Skip the tick when quiet mode (`body.calm`) is on.
 - **A small state machine.** A `state.mode` string (`idle`, `demo`, `pause`, `play`, `win`, …), with `state.run` holding the pending timeline or `delayedCall` so `idle()` can kill it. Check `alive()` at the start of every callback.
 - **Focus and blur.** On focus, stop the demo and start round one. On blur mid-round, go back to `idle()` (heal the scene, restart the demo). A reward sequence may finish first and then go idle.
